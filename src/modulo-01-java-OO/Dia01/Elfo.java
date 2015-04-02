@@ -1,4 +1,3 @@
-
 /**
  * Define objetos Elfo
  * 
@@ -32,14 +31,14 @@ public class Elfo
     public Elfo(String nome) {
         this.nome = nome;
     }
-    
     /**
-     * Atira uma flecha e perde uma unidade.
+     * Atira uma flecha, perde uma unidade e dá dano no Orc.
      */
-    public void atirarFlecha() {
+    public void atirarFlecha(Orc orc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
+        orc.recebeAtaque();
     }
     
     
