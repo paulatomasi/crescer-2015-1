@@ -47,4 +47,41 @@ public class OrcTest
     int resultadoObtido = orc.getVida();
     assertEquals(esperado, resultadoObtido);
     }
+    
+    @Test
+    public void orcToString(){
+    Orc orc = new Orc();
+    String esperado = "Vida atual: 110";
+    String resultadoObtido = orc.toString();
+    assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringAposRecebeAtaque(){
+        Orc orc = new Orc();
+        orc.recebeAtaque();
+        String esperado = "Vida atual: 100";
+        String resultadoObtido = orc.toString();
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+     @Test
+    public void orcToStringAposRecebeDozeAtaques(){
+        Orc orc = new Orc();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        String esperado = "Vida atual: -10";
+        String resultadoObtido = orc.toString();
+        assertEquals(esperado, resultadoObtido);
+    }
 }
