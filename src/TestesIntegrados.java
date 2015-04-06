@@ -22,7 +22,7 @@ public class TestesIntegrados
         int vidaEsperadaOrc1 = 100;
         int vidaEsperadaOrc2 = 100;
         String toStringEsperadoOrc = "Vida atual: 100";
-        String toStringEsperadoElfo = "Legolas possui 40 flechas e 2 nível(eis) de experiência.";
+        String toStringEsperadoElfo = "Legolas possui 40 flechas e 2 niveis de expericência.";
         
        assertEquals(experienciaEsperada, elfo.getExperiencia());
        assertEquals(flechasEsperadas, elfo.getFlechas());

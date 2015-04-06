@@ -44,6 +44,12 @@ public class Elfo
         return this.experiencia;
     }
     public String toString(){
-        return (nome + " possui " + flechas + " flechas e " + experiencia + " nível(eis) de experiência.");
+       // return (this.nome + " possui " + this.flechas + " " + textoFlechas + " e " + this.experiencia + " " + textoNiveis + " de experiência.");
+       return String.format("%s possui %d %s e %d %s de expericência.", 
+            this.nome, 
+            this.flechas, 
+            this.flechas == 1 ? "flecha" : "flechas", 
+            this.experiencia, 
+            this.experiencia == 1 ? "nível" : "niveis");
     }
 }
