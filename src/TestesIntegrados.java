@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 /**
  * Testes integrados entre objetos Elfo e Orc.
  *
@@ -13,8 +12,8 @@ public class TestesIntegrados
     @Test
     public void umElfoAtiraEmDoisOrcs(){
         Elfo elfo = new Elfo("Legolas");
-        Orc orc1 = new Orc();
-        Orc orc2 = new Orc();
+        Orc orc1 = new Orc("Nome Grande Aqui 1");
+        Orc orc2 = new Orc("Nome Grande Aqui 2");
         elfo.atirarFlecha(orc1);
         elfo.atirarFlecha(orc2);
         int experienciaEsperada = 2;
@@ -22,7 +21,7 @@ public class TestesIntegrados
         int vidaEsperadaOrc1 = 100;
         int vidaEsperadaOrc2 = 100;
         String toStringEsperadoOrc = "Vida atual: 100";
-        String toStringEsperadoElfo = "Legolas possui 40 flechas e 2 niveis de expericência.";
+        String toStringEsperadoElfo = "Legolas possui 40 flechas e 2 niveis de experiencia.";
         
        assertEquals(experienciaEsperada, elfo.getExperiencia());
        assertEquals(flechasEsperadas, elfo.getFlechas());

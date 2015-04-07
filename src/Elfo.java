@@ -11,7 +11,7 @@ public class Elfo
     /**
      * Cria objetos Elfo
      * 
-     * @param umNome Nome que o elfo receberá
+     * @param umNome Nome que o elfo recebera
      * @param flechas Quantidade inicial de flechas
      */
     public Elfo(String umNome, int flechas)
@@ -24,7 +24,7 @@ public class Elfo
         this.nome = nome;
     }
     /**
-     * Atira uma flecha, perde uma unidade e dá dano no Orc.
+     * Atira uma flecha, perde uma unidade e da dano no Orc.
      */
     public void atirarFlecha(Orc orc) {
         flechas--;
@@ -43,13 +43,14 @@ public class Elfo
     public int getExperiencia(){
         return this.experiencia;
     }
+     
     public String toString(){
-       // return (this.nome + " possui " + this.flechas + " " + textoFlechas + " e " + this.experiencia + " " + textoNiveis + " de experiência.");
-       return String.format("%s possui %d %s e %d %s de expericência.", 
+       // return (this.nome + " possui " + this.flechas + " " + textoFlechas + " e " + this.experiencia + " " + textoNiveis + " de experiÃªncia.");
+       return String.format("%s possui %d %s e %d %s de experiencia.", 
             this.nome, 
             this.flechas, 
             this.flechas == 1 ? "flecha" : "flechas", 
             this.experiencia, 
-            this.experiencia == 1 ? "nível" : "niveis");
+            this.experiencia == 1 ? "nivel" : "niveis");
     }
 }

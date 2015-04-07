@@ -58,7 +58,7 @@ public class ElfoTest
    @Test
    public void elfoToStringPadrao(){
         Elfo elfo = new Elfo("Legolas");
-        String esperado = ("Legolas possui 42 flechas e 0 niveis de expericência.");
+        String esperado = ("Legolas possui 42 flechas e 0 niveis de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -69,7 +69,7 @@ public class ElfoTest
         Elfo elfo = new Elfo("Legolas");
         Orc orc = new Orc();
         elfo.atirarFlecha(orc);
-        String esperado = ("Legolas possui 41 flechas e 1 nível de expericência.");
+        String esperado = ("Legolas possui 41 flechas e 1 nivel de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -88,7 +88,7 @@ public class ElfoTest
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
         elfo.atirarFlecha(orc);
-        String esperado = ("Legolas possui 32 flechas e 10 niveis de expericência.");
+        String esperado = ("Legolas possui 32 flechas e 10 niveis de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
     }
