@@ -98,8 +98,8 @@
             item.remove(x);
         }
         
-        public int getTiposDeItens(){
-            return item.size();
+        public ArrayList<ItemDoInventario> getItem(){
+            return this.item;
         }
         
         public String getNome(){

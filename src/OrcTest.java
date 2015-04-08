@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.*;
 /**
  * The test class OrcTest.
  *
@@ -188,9 +189,11 @@ public class OrcTest
     public void orcRecebeUmItem(){
         Orc orc = new Orc("Nome Grande Aqui");
         ItemDoInventario item1 = new ItemDoInventario("Clava", 5);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
-        int quantidadeEsperada = 1;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.add(item1);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
     
     @Test
@@ -198,10 +201,13 @@ public class OrcTest
         Orc orc = new Orc("Nome Grande Aqui");
         ItemDoInventario item1 = new ItemDoInventario("Clava", 5);
         ItemDoInventario item2 = new ItemDoInventario("Adaga", 9);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
         orc.adicionarItem(item2);
-        int quantidadeEsperada = 2;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.add(item1);
+        inventarioEsperado.add(item2);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
     
     @Test
@@ -217,6 +223,8 @@ public class OrcTest
         ItemDoInventario item8 = new ItemDoInventario("Arma", 8);
         ItemDoInventario item9 = new ItemDoInventario("Metralhadora", 2);
         ItemDoInventario item10 = new ItemDoInventario("Bazuca", 6);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
         orc.adicionarItem(item2);
         orc.adicionarItem(item3);
@@ -227,18 +235,30 @@ public class OrcTest
         orc.adicionarItem(item8);
         orc.adicionarItem(item9);
         orc.adicionarItem(item10);
-        int quantidadeEsperada = 10;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.add(item1);
+        inventarioEsperado.add(item2);
+        inventarioEsperado.add(item3);
+        inventarioEsperado.add(item4);
+        inventarioEsperado.add(item5);
+        inventarioEsperado.add(item6);
+        inventarioEsperado.add(item7);
+        inventarioEsperado.add(item8);
+        inventarioEsperado.add(item9);
+        inventarioEsperado.add(item10);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
     
     @Test
     public void orcRecebeUmItemEPerdeUmItem(){
         Orc orc = new Orc("Nome Grande Aqui");
         ItemDoInventario item1 = new ItemDoInventario("Clava", 5);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
+        inventarioEsperado.add(item1);
         orc.perderItem(item1);
-        int quantidadeEsperada = 0;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.remove(item1);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
     
     @Test
@@ -247,13 +267,21 @@ public class OrcTest
         ItemDoInventario item1 = new ItemDoInventario("Clava", 5);
         ItemDoInventario item2 = new ItemDoInventario("Adaga", 9);
         ItemDoInventario item3 = new ItemDoInventario("Machado", 2);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
+        inventarioEsperado.add(item1);
+        orc.perderItem(item1);
+        inventarioEsperado.remove(item1);
         orc.adicionarItem(item2);
-        orc.adicionarItem(item3);
+        inventarioEsperado.add(item2);
         orc.perderItem(item2);
+        inventarioEsperado.remove(item2);
+        orc.adicionarItem(item3);
+        inventarioEsperado.add(item3);
         orc.perderItem(item3);
-        int quantidadeEsperada = 1;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.remove(item3);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
         @Test
     public void orcRecebeDezItensEPerdeSeisItens(){
@@ -268,6 +296,8 @@ public class OrcTest
         ItemDoInventario item8 = new ItemDoInventario("Arma", 8);
         ItemDoInventario item9 = new ItemDoInventario("Metralhadora", 2);
         ItemDoInventario item10 = new ItemDoInventario("Bazuca", 6);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItem();
         orc.adicionarItem(item1);
         orc.adicionarItem(item2);
         orc.adicionarItem(item3);
@@ -278,13 +308,28 @@ public class OrcTest
         orc.adicionarItem(item8);
         orc.adicionarItem(item9);
         orc.adicionarItem(item10);
-        orc.perderItem(item5);
+        inventarioEsperado.add(item1);
+        inventarioEsperado.add(item2);
+        inventarioEsperado.add(item3);
+        inventarioEsperado.add(item4);
+        inventarioEsperado.add(item5);
+        inventarioEsperado.add(item6);
+        inventarioEsperado.add(item7);
+        inventarioEsperado.add(item8);
+        inventarioEsperado.add(item9);
+        inventarioEsperado.add(item10);
         orc.perderItem(item1);
         orc.perderItem(item2);
         orc.perderItem(item3);
+        orc.perderItem(item5);
         orc.perderItem(item7);
         orc.perderItem(item9);
-        int quantidadeEsperada = 4;
-        assertEquals(quantidadeEsperada, orc.getTiposDeItens());
+        inventarioEsperado.remove(item1);
+        inventarioEsperado.remove(item2);
+        inventarioEsperado.remove(item3);
+        inventarioEsperado.remove(item5);
+        inventarioEsperado.remove(item7);
+        inventarioEsperado.remove(item9);
+        assertEquals(inventarioEsperado, inventarioObtido);
     }
 }
