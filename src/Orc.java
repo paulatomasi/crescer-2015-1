@@ -94,13 +94,8 @@
          * Procura igualdade entre o item passado como parametro e os existentes na lista;
          * Quando iguais, remove o item da  lista e diminui x;
          */
-        public void perderItem(ItemDoInventario itemPerder){
-            for (int x = 0; x < item.size(); x++){
-                if (item.get(x).equals(itemPerder)){
-                    item.remove(x);
-                    x--;
-                }
-            }
+        public void perderItem(ItemDoInventario x){
+            item.remove(x);
         }
         
         public int getTiposDeItens(){

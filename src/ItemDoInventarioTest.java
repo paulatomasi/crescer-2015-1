@@ -17,4 +17,13 @@ public class ItemDoInventarioTest
         assertEquals(quantidadeEsperada, item.getQuantidade());
         assertEquals(descricaoEsperada, item.getDescricao());
     }
+    
+    @Test
+    public void itemComDescricaoNulaEQuantidadeNegativa(){
+        int quantidadeEsperada = -99;
+        String descricaoEsperada = null;
+        ItemDoInventario item = new ItemDoInventario(descricaoEsperada,quantidadeEsperada);
+        assertEquals(quantidadeEsperada, item.getQuantidade());
+        assertEquals(descricaoEsperada, item.getDescricao());
+    }
 }
