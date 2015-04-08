@@ -20,6 +20,10 @@ public class ItemDoInventario
         return this.quantidade;
     }
     
+    public void setQuantidade(int novaQuantidade){
+        this.quantidade = novaQuantidade;
+    }
+    
     public String getDescricao(){
         return this.descricao;
     }
