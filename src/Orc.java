@@ -3,12 +3,14 @@
      * 
      * @author Paula Tomasi
      */
+    import java.util.*;
     public class Orc
     {
         private int vida = 110;
         private String nome;
         private int experiencia = 0;
         private Status status = Status.VIVO;
+        ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();
     
         public Orc(String nome) {
             this.nome = nome;
@@ -80,6 +82,29 @@
                 numero = Math.pow(numero, 2);
             }
             return numero;
+        }
+        
+        public void adicionarItem(ItemDoInventario itemAdicionar){
+            item.add(itemAdicionar);
+        }
+        
+        /**
+         * Recebe o item que vai perder;
+         * Percorre todo o arraylist;
+         * Procura igualdade entre o item passado como parametro e os existentes na lista;
+         * Quando iguais, remove o item da  lista e diminui x;
+         */
+        public void perderItem(ItemDoInventario itemPerder){
+            for (int x = 0; x < item.size(); x++){
+                if (item.get(x).equals(itemPerder)){
+                    item.remove(x);
+                    x--;
+                }
+            }
+        }
+        
+        public int getTiposDeItens(){
+            return item.size();
         }
         
         public String getNome(){
