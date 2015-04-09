@@ -403,8 +403,55 @@ public class OrcTest
         ItemDoInventario item2 = new ItemDoInventario("Pocao de lanca", 1);
         orc.adicionarItem(item1);
         orc.adicionarItem(item2);
-        orc.getItemComMaiorQuantidade();
         ItemDoInventario resultadoEsperado = orc.getItem().get(0);
+        ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
+        assertEquals(resultadoEsperado, resutladoObtido);
+    }
+    
+    @Test
+    public void testarItemComMaiorQuantidadeComUmItem(){
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Pocao de mana", 3);
+        orc.adicionarItem(item1);
+        ItemDoInventario resultadoEsperado = orc.getItem().get(0);
+        ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
+        assertEquals(resultadoEsperado, resutladoObtido);
+    }
+    
+    @Test
+    public void testarItemComMaiorQuantidadeComInventarioVazio(){
+        Orc orc = new Orc();
+        ItemDoInventario resultadoEsperado = null;
+        ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
+        assertEquals(resultadoEsperado, resutladoObtido);
+    }
+    
+    @Test
+    public void testarDoisItensComMesmaQuantidade(){
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Pocao de mana", 3);
+        ItemDoInventario item2 = new ItemDoInventario("Pocao de lanca", 3);
+        orc.adicionarItem(item1);
+        orc.adicionarItem(item2);
+        ItemDoInventario resultadoEsperado = orc.getItem().get(0);
+        ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
+        assertEquals(resultadoEsperado, resutladoObtido);
+    }
+    
+    @Test
+    public void qualItemTemMaiorQuantidade(){
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Adaga", 15);
+        ItemDoInventario item2 = new ItemDoInventario("Pocao", 2);
+        ItemDoInventario item3 = new ItemDoInventario("Flechas", 17);
+        ItemDoInventario item4 = new ItemDoInventario("Pedras preciosas", 9);
+        ItemDoInventario item5 = new ItemDoInventario("Beyblade", 18);
+        orc.adicionarItem(item1);
+        orc.adicionarItem(item2);
+        orc.adicionarItem(item3);
+        orc.adicionarItem(item4);
+        orc.adicionarItem(item5);
+        ItemDoInventario resultadoEsperado = orc.getItem().get(4);
         ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
         assertEquals(resultadoEsperado, resutladoObtido);
     }
