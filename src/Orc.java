@@ -1,8 +1,8 @@
     /**
-     * Define objeto Orc
-     * 
-     * @author Paula Tomasi
-     */
+       * Define objeto Orc
+         * 
+           * @author Paula Tomasi
+             */
     import java.util.*;
     public class Orc
     {
@@ -50,40 +50,38 @@
          * @return String com a vida atual do orc
          * Ex: Vida atual: 110
          */
-    
-        private double gerarNumero(){
-            double  numero = 0.0;
-            boolean possuiNomeComMaisDeCincoCaracteres = this.nome != null && this.nome.length()>5;
-            boolean estaFugindo = this.status == Status.FUGINDO;
-            boolean estaDormindoOuCacando = this.status == Status.DORMINDO || this.status == Status.CACANDO;
-            // Letra A
-            if (possuiNomeComMaisDeCincoCaracteres){
-                numero += 65.0;
-            }else {
-                numero -= 60.0;
-            }
-            // Letra B
-            if (this.vida>=30 && this.vida<=60){
-                numero *= 2;
-            }else if (this.vida >20){
-                numero *= 3;
-            }
-            // Letra C
-            if (estaFugindo){
-                numero /= 2;
-            }else if (estaDormindoOuCacando){
-                    numero += 1.0;
-                }
-            // Letra D
-            if (this.experiencia % 2 ==0){
-                numero = Math.pow(numero, 3);
-            }
-            if (this.experiencia % 2 != 0 && this.experiencia>2){
-                numero = Math.pow(numero, 2);
-            }
-            return numero;
+        private double gerarNumero() {
+         double numeroGerado = 0.0;
+         // Letra A
+         boolean possuiNome = this.nome != null && this.nome.length() > 5;
+         if (possuiNome && this.nome.length() > 5) {
+             numeroGerado += 65;
+         } else {
+             numeroGerado -= 60;
+         }
+         // Letra B
+         boolean possuiVidaEntre30e60 = this.vida >= 30 && this.vida <= 60;
+         if (possuiVidaEntre30e60) {
+             numeroGerado *= 2;
+         } else if (this.vida < 20) {
+             numeroGerado *= 3;
+         }
+         // Letra D
+         if (this.status == Status.FUGINDO) {
+             numeroGerado /= 2;
+         } else if (this.status == Status.CACANDO || this.status == Status.DORMINDO) { 
+             numeroGerado += 1;
+         }
+         // Letra D
+         boolean experienciaPar = this.experiencia % 2 == 0;
+         if (experienciaPar) {
+             numeroGerado = numeroGerado * numeroGerado * numeroGerado;
+         } else if (this.experiencia > 2) {
+             numeroGerado = numeroGerado * numeroGerado;
+         }  
+         return numeroGerado;
         }
-        
+
         public void adicionarItem(ItemDoInventario itemAdicionar){
             item.add(itemAdicionar);
         }
@@ -101,7 +99,7 @@
         public ArrayList<ItemDoInventario> getItem(){
             return this.item;
         }
-        
+
         public String getNome(){
             return this.nome;
         }
@@ -118,6 +116,10 @@
             return this.status;
         }
         
+        public void setStatus(Status novoStatus) {
+         this.status = novoStatus;
+        }
+        
         public void setExperiencia(int novaExperiencia){
             this.experiencia = novaExperiencia;
         }
@@ -125,4 +127,28 @@
         public String toString(){
             return "Vida atual: " + this.vida;
         }
-}
+        
+        public String getDescricoesItens(){
+            StringBuilder builder = new StringBuilder();
+            for (int x = 0; x<item.size(); x++){
+                ItemDoInventario itemAtual = item.get(x);
+                boolean ultimoIndice = x == item.size() - 1;
+                builder.append(
+                    ultimoIndice ?
+                    itemAtual.getDescricao() :
+                    itemAtual.getDescricao() + ","
+                );
+            }
+            return builder.toString();
+        }
+
+        public  void tentarSorte(){
+            double numeroGerado = gerarNumero();
+            if (numeroGerado == 3481){
+                for (int x = 0; x<item.size(); x++){
+                    int novaQuantidadeItem = item.get(x).getQuantidade() + 1000;
+                    item.get(x).setQuantidade(novaQuantidadeItem);
+                }
+            }
+        }
+    }
