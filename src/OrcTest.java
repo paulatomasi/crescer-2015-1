@@ -97,6 +97,7 @@ public class OrcTest
         String resultadoObtido = orc.toString();
         assertEquals(esperado, resultadoObtido);
     }
+    
     @Test
     public void orcMorreAoZerarVida(){
         Orc orc = new Orc("Nome Grande Aqui");
@@ -366,14 +367,14 @@ public class OrcTest
         assertEquals(descricaoEsperada, orc.getDescricoesItens());
     }
     
-@Test
+    @Test
     public void orcTentarSorteAumenta1000UnidadesDosItens() {
         // Arrange
         Orc urukhai = new Orc();
         urukhai.setStatus(Status.DORMINDO);
         urukhai.setExperiencia(3);
-        urukhai.adicionarItem(new ItemDoInventario("Poção de mana", 3));
-        urukhai.adicionarItem(new ItemDoInventario("Poção Lança", 1));
+        urukhai.adicionarItem(new ItemDoInventario("Pocao de mana", 3));
+        urukhai.adicionarItem(new ItemDoInventario("Pocao de lanca", 1));
         // Act
         urukhai.tentarSorte();
         // Assert
@@ -393,5 +394,18 @@ public class OrcTest
          ItemDoInventario lanca = orc.getItem().get(1);
          assertEquals(3, pocao.getQuantidade());
          assertEquals(1, lanca.getQuantidade());
+    }
+    
+    @Test
+    public void testarItemComMaiorQuantidade(){
+        Orc orc = new Orc();
+        ItemDoInventario item1 = new ItemDoInventario("Pocao de mana", 3);
+        ItemDoInventario item2 = new ItemDoInventario("Pocao de lanca", 1);
+        orc.adicionarItem(item1);
+        orc.adicionarItem(item2);
+        orc.getItemComMaiorQuantidade();
+        ItemDoInventario resultadoEsperado = orc.getItem().get(0);
+        ItemDoInventario resutladoObtido = orc.getItemComMaiorQuantidade();
+        assertEquals(resultadoEsperado, resutladoObtido);
     }
 }

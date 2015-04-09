@@ -151,4 +151,18 @@
                 }
             }
         }
+        
+        public ItemDoInventario getItemComMaiorQuantidade(){
+            int maiorQuantidade = 0;
+            int quantidade = 0;
+            ItemDoInventario itemAtual = null;
+            for (int x = 0; x<item.size(); x++){
+                quantidade = item.get(x).getQuantidade();
+                if (quantidade > maiorQuantidade){
+                    itemAtual = item.get(x);
+                    maiorQuantidade = quantidade;
+                }
+            }
+            return itemAtual;
+        }
     }
