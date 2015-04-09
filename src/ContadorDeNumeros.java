@@ -5,7 +5,7 @@
  */
 public class ContadorDeNumeros
 {
-    public void contarAté(int numero){
+    public void contarAte(int numero){
         for (int x = 1; x<=numero; x++){
             System.out.println(x);
         }
