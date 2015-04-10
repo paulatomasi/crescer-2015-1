@@ -165,4 +165,18 @@
             }
             return itemAtual;
         }
+        
+        public void ordenarItens(){
+            for (int i = 0; i < item.size(); i++){
+                for (int j = 0; j < item.size() - 1; j++){
+                    ItemDoInventario itemAtual = this.item.get(j);
+                    ItemDoInventario proximo = this.item.get(j+1);
+                    boolean precisaTrocar = itemAtual.getQuantidade() > proximo.getQuantidade();
+                    if (precisaTrocar){
+                        this.item.set(j, proximo);
+                        this.item.set(j+1, itemAtual);
+                    }
+                }
+            }
+        }
     }
