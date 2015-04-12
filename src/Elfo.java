@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class Elfo extends Personagem
 {
-    private int flechas = 42;
+    protected int flechas = 42;
     /**
      * Cria objetos Elfo
      * 
@@ -26,13 +26,13 @@ public class Elfo extends Personagem
     /**
      * Atira uma flecha, perde uma unidade e da dano no Orc.
      */
-    public void atirarFlecha(Orc orc) {
+    protected void atirarFlecha(Orc orc) {
         flechas--;
         experiencia++;
         orc.recebeAtaque();
     }
     
-    public int getFlechas(){
+    protected int getFlechas(){
         return this.flechas;
     }
      

@@ -44,7 +44,7 @@ public class ElfoTest
    } 
    
    @Test
-   public void alfoAtiraFlechasNoMesmoOrc(){
+   public void elfoAtiraFlechasNoMesmoOrc(){
        Elfo elfo = new Elfo("Legolas");
        Orc orc = new Orc ();
        elfo.atirarFlecha(orc);
