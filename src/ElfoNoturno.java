@@ -18,6 +18,14 @@ public class ElfoNoturno extends Elfo
     protected void atirarFlecha(Orc orc) {
         super.atirarFlecha(orc);
         this.experiencia+=2;
-        this.vida = vida - ((vida*5)/100);
+        this.vida -= (double) (vida*5)/100;
+        atualizarStatus();
+        
+    }
+    
+    public void flechasParaMorrer(Orc orc){
+        while (vida!=0){
+            this.atirarFlecha(orc);
+        }  
     }
 }

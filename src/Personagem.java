@@ -35,7 +35,17 @@ public class Personagem{
     public void adicionarItem(ItemDoInventario itemAdicionar){
         item.add(itemAdicionar);
     }
+    
+    public void atualizarStatus(){
+        if (vida <100 && vida>0){
+            status = Status.FERIDO;
+        }
         
+        if (vida == 0){
+            status = Status.MORTO;
+        }
+    }
+    
     /**
     * Recebe o item que vai perder;
     * Percorre todo o arraylist;

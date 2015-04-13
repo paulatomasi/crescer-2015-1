@@ -54,25 +54,11 @@ public class ElfoNoturnoTest
        Orc orc = new Orc ();
        elfoNoturno.atirarFlecha(orc);
        elfoNoturno.atirarFlecha(orc);
-       int vidaEsperada = 91;
+       int vidaEsperada = 90;
        int expEsperada = 6;
        assertEquals(nome, elfoNoturno.getNome());
        assertEquals(vidaEsperada, elfoNoturno.getVida());
        assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
-   
-   @Test
-   public void elfoNoturnoPerde5DeVidaQuandoAtiraTresFlecha(){
-       String nome = "Barbie";
-       ElfoNoturno elfoNoturno = new ElfoNoturno(nome);
-       Orc orc = new Orc ();
-       elfoNoturno.atirarFlecha(orc);
-       elfoNoturno.atirarFlecha(orc);
-       elfoNoturno.atirarFlecha(orc);
-       int vidaEsperada = 87;
-       int expEsperada = 9;
-       assertEquals(nome, elfoNoturno.getNome());
-       assertEquals(vidaEsperada, elfoNoturno.getVida());
-       assertEquals(expEsperada, elfoNoturno.getExperiencia());
-   }
+
 }
