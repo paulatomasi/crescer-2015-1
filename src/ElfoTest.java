@@ -33,6 +33,13 @@ public class ElfoTest
    }   
    
    @Test
+   public void elfoNasceCom100DeVida(){
+       Elfo elfo = new Elfo("Legolas");
+       int vidaEsperada = 100;
+       assertEquals(vidaEsperada, elfo.getVida());
+   }
+   
+   @Test
    public void elfoAtiraFlechaEmUmOrc(){
        Elfo elfo = new Elfo("Legolas");
        Orc orc = new Orc ();

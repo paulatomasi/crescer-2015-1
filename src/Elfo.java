@@ -20,7 +20,7 @@ public class Elfo extends Personagem
     }
     
     public Elfo(String nome) {
-        super(nome, 0);
+        super(nome, 100);
     }
     
     /**
