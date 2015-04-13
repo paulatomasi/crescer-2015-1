@@ -41,8 +41,10 @@ public class ElfoNoturnoTest
        Orc orc = new Orc ();
        elfoNoturno.atirarFlecha(orc);
        int vidaEsperada = 95;
+       int expEsperada = 3;
        assertEquals(nome, elfoNoturno.getNome());
        assertEquals(vidaEsperada, elfoNoturno.getVida());
+       assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
    
    @Test
@@ -53,8 +55,10 @@ public class ElfoNoturnoTest
        elfoNoturno.atirarFlecha(orc);
        elfoNoturno.atirarFlecha(orc);
        int vidaEsperada = 91;
+       int expEsperada = 6;
        assertEquals(nome, elfoNoturno.getNome());
        assertEquals(vidaEsperada, elfoNoturno.getVida());
+       assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
    
    @Test
@@ -66,7 +70,9 @@ public class ElfoNoturnoTest
        elfoNoturno.atirarFlecha(orc);
        elfoNoturno.atirarFlecha(orc);
        int vidaEsperada = 87;
+       int expEsperada = 9;
        assertEquals(nome, elfoNoturno.getNome());
        assertEquals(vidaEsperada, elfoNoturno.getVida());
+       assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
 }
