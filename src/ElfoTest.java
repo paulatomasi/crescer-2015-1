@@ -17,16 +17,14 @@ public class ElfoTest
     Elfo elfo = new Elfo(esperado);
     
     assertEquals(esperado, elfo.getNome());
-    assertEquals(1, elfo.contadorDeElfos());
-    elfo.zerar();
+    assertEquals(1, elfo.getContadorDeElfos());
    }
    
    @Test
    public void contadorRetorna2(){
        Elfo elfo1 = new Elfo("Elfo1");
        Elfo elfo2 = new Elfo("Elfo2");
-       assertEquals(2, elfo2.contadorDeElfos());
-       elfo2.zerar();
+       assertEquals(2, elfo2.getContadorDeElfos());
    }
    
    @Test
@@ -41,8 +39,7 @@ public class ElfoTest
        Elfo elfo8 = new Elfo("Elfo8");
        Elfo elfo9 = new Elfo("Elfo9");
        Elfo elfo10 = new Elfo("Elfo10");
-       assertEquals(10, elfo10.contadorDeElfos());
-       elfo10.zerar();
+       assertEquals(10, elfo10.getContadorDeElfos());
    }
     
    @Test    
@@ -136,4 +133,9 @@ public class ElfoTest
         assertEquals(esperado, resultadoObtido);
         elfo.zerar();
     }
+    
+   @Before
+   public void SetUp(){
+       Elfo.zerar();
+   }
 }

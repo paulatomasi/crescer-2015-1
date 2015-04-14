@@ -7,7 +7,12 @@ import java.util.*;
 public class Elfo extends Personagem
 {
     protected int flechas = 42;
-    protected static int contador;
+    private static int contadorDeElfos;
+    
+    {
+        Elfo.contadorDeElfos++;
+    }
+    
     /**
      * Cria objetos Elfo
      * 
@@ -18,12 +23,12 @@ public class Elfo extends Personagem
     {
         this(umNome);
         this.flechas = flechas;
-        contadorDeElfos();
+        Elfo.getContadorDeElfos();
     }
     
     public Elfo(String nome) {
         super(nome, 100);
-        contadorDeElfos();
+        Elfo.getContadorDeElfos();
     }
     
     /**
@@ -49,11 +54,11 @@ public class Elfo extends Personagem
             this.experiencia == 1 ? "nivel" : "niveis");
     }
     
-    public int contadorDeElfos(){
-        return contador ++;
+     public static int getContadorDeElfos(){
+        return Elfo.contadorDeElfos;
     }
     
     public static void zerar(){
-        contador = 0;
+        contadorDeElfos = 0;
     }
 }
