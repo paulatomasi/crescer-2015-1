@@ -47,7 +47,6 @@ public class ElfoTest
     int esperado = 42;
     Elfo elfo = new Elfo("Qualquer um");
     assertEquals(esperado, elfo.getFlechas());
-    elfo.zerar();
    }
    
    @Test
@@ -57,7 +56,6 @@ public class ElfoTest
        Elfo elfo = new Elfo(nome, flechas);
        assertEquals(nome, elfo.getNome());
        assertEquals(flechas, elfo.getFlechas());
-       elfo.zerar();
    }   
    
    @Test
@@ -65,7 +63,6 @@ public class ElfoTest
        Elfo elfo = new Elfo("Legolas");
        double vidaEsperada = 100;
        assertEquals(vidaEsperada, elfo.getVida(), DELTA);
-       elfo.zerar();
    }
    
    @Test
@@ -77,7 +74,6 @@ public class ElfoTest
        int flechas = 41;
        assertEquals(experiencia, elfo.getExperiencia());
        assertEquals(flechas, elfo.getFlechas());
-       elfo.zerar();
    } 
    
    @Test
@@ -90,7 +86,6 @@ public class ElfoTest
        int flechas = 40;
        assertEquals(experiencia, elfo.getExperiencia());
        assertEquals(flechas, elfo.getFlechas());
-       elfo.zerar();
    }
    
    @Test
@@ -99,7 +94,6 @@ public class ElfoTest
         String esperado = ("Legolas possui 42 flechas e 0 niveis de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
-        elfo.zerar();
     }
    
    
@@ -111,8 +105,7 @@ public class ElfoTest
         String esperado = ("Legolas possui 41 flechas e 1 nivel de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
-        elfo.zerar();
-    }
+  }
     
    @Test
    public void elfoToStringAtira10Flechas(){
@@ -131,8 +124,15 @@ public class ElfoTest
         String esperado = ("Legolas possui 32 flechas e 10 niveis de experiencia.");
         String resultadoObtido = elfo.toString();
         assertEquals(esperado, resultadoObtido);
-        elfo.zerar();
     }
+    
+   @Test
+   public void doisElfosSaoIguaisComMesmoNome(){
+       Elfo elfo1 = new Elfo("Legolas");
+       Elfo elfo2 = new Elfo("Legolas");
+       boolean esperado = true;
+       assertEquals(esperado, elfo1.equals(elfo2));
+   }
     
    @Before
    public void SetUp(){

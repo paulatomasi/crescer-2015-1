@@ -61,4 +61,13 @@ public class Elfo extends Personagem
     public static void zerar(){
         contadorDeElfos = 0;
     }
+    
+    @Override
+    public boolean equals(Object outro){
+        return ((Elfo)outro).getNome().equals(this.nome);
+        /*Elfo outroElfo = (Elfo)outro;
+        boolean saoIguais = this.nome.equals(outroElfo.getNome());
+        return saoIguais;*/
+    }
+    
 }
