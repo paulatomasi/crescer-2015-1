@@ -7,11 +7,11 @@ import java.util.*;
 public class Personagem{
     protected ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();
     Status status = Status.VIVO;
-    protected int vida;
+    protected double vida;
     protected String nome;
     protected int experiencia;
     
-    protected Personagem(String nome, int vida){
+    protected Personagem(String nome, double vida){
         this.nome = nome;
         this.vida = vida;
     }
@@ -20,7 +20,7 @@ public class Personagem{
         return status;
     }
     
-    protected int getVida(){
+    protected double getVida(){
         return vida;
     }
     

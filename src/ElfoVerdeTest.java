@@ -71,7 +71,7 @@ public class ElfoVerdeTest
         elfoVerde.atirarFlecha(orc);
         elfoVerde.atirarFlecha(orc);
         elfoVerde.atirarFlecha(orc);
-        String esperado = ("Legolas possui 32 flechas e 20 niveis de experiencia.");
+        String esperado = ("Elfo verde: Legolas possui 32 flechas e 20 niveis de experiencia.");
         String resultadoObtido = elfoVerde.toString();
         assertEquals(esperado, resultadoObtido);
     }

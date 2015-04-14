@@ -9,6 +9,8 @@ import org.junit.Test;
  */
 public class ElfoTest
 {
+   private final double DELTA = 0.005;
+    
    @Test
    public void elfoNasceComNome(){
     String esperado = "Legolas";
@@ -35,8 +37,8 @@ public class ElfoTest
    @Test
    public void elfoNasceCom100DeVida(){
        Elfo elfo = new Elfo("Legolas");
-       int vidaEsperada = 100;
-       assertEquals(vidaEsperada, elfo.getVida());
+       double vidaEsperada = 100;
+       assertEquals(vidaEsperada, elfo.getVida(), DELTA);
    }
    
    @Test

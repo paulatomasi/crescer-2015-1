@@ -10,6 +10,8 @@ import java.util.*;
  */
 public class OrcTest
 {
+    private final double DELTA = 0.005;
+    
     @Test
     public void orcNasceComNomeInformado(){
         String nomeEsperado = "Tom";
@@ -42,9 +44,9 @@ public class OrcTest
     public void orcRecebeUmAtaque(){
         Orc orc = new Orc("Nome Grande Aqui");
         orc.recebeAtaque();
-        int esperado = 100;
-        int resultadoObtido = orc.getVida();
-        assertEquals(esperado, resultadoObtido);
+        double esperado = 100;
+        double resultadoObtido = orc.getVida();
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -60,9 +62,9 @@ public class OrcTest
         Orc orc = new Orc("Nome Grande Aqui");
         orc.recebeAtaque();
         orc.recebeAtaque();
-        int esperado = 90;
-        int resultadoObtido = orc.getVida();
-        assertEquals(esperado, resultadoObtido);
+        double esperado = 90;
+        double resultadoObtido = orc.getVida();
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -73,9 +75,9 @@ public class OrcTest
         orc.recebeAtaque();
         orc.recebeAtaque();
         orc.recebeAtaque();
-        int esperado = 60;
-        int resultadoObtido = orc.getVida();
-        assertEquals(esperado, resultadoObtido);
+        double esperado = 60;
+        double resultadoObtido = orc.getVida();
+        assertEquals(esperado, resultadoObtido, DELTA);
     }
 
     @Test
@@ -93,7 +95,7 @@ public class OrcTest
         orc.recebeAtaque();
         orc.recebeAtaque();
         orc.recebeAtaque();
-        String esperado = "Vida atual: 0";
+        String esperado = "Vida atual: 0.0";
         String resultadoObtido = orc.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -120,7 +122,7 @@ public class OrcTest
     @Test
     public void orcToStringVidaPadrao(){
         Orc orc = new Orc();
-        String esperado = "Vida atual: 110";
+        String esperado = "Vida atual: 110.0";
         String resultadoObtido = orc.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -129,7 +131,7 @@ public class OrcTest
     public void orcToStringAposRecebeAtaque(){
         Orc orc = new Orc();
         orc.recebeAtaque();
-        String esperado = "Vida atual: 110";
+        String esperado = "Vida atual: 110.0";
         String resultadoObtido = orc.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -149,7 +151,7 @@ public class OrcTest
         orc.recebeAtaque();
         orc.recebeAtaque();
         orc.recebeAtaque();
-        String esperado = "Vida atual: 0";
+        String esperado = "Vida atual: 0.0";
         String resultadoObtido = orc.toString();
         assertEquals(esperado, resultadoObtido);
     }
@@ -158,9 +160,9 @@ public class OrcTest
     public void orcRecebeAtaqueComNumeroGeradoMenorQueZero(){
         Orc orc = new Orc("Tom");
         orc.recebeAtaque();
-        int vidaEsperada = 110;
+        double vidaEsperada = 110;
         int experienciaEsperada = 2;
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(experienciaEsperada, orc.getExperiencia());
     }
     
@@ -169,9 +171,9 @@ public class OrcTest
         Orc orc = new Orc("Nome Grande Aqui");
         orc.setExperiencia(1);
         orc.recebeAtaque();
-        int vidaEsperada = 110;
+        double vidaEsperada = 110.0;
         int experienciaEsperada = 1;
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(experienciaEsperada, orc.getExperiencia());
     }
     
@@ -180,9 +182,9 @@ public class OrcTest
         Orc orc = new Orc("Tomzinho");
         orc.setExperiencia(2);
         orc.recebeAtaque();
-        int vidaEsperada = 100;
+        double vidaEsperada = 100.0;
         int experienciaEsperada = 2;
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), DELTA);
         assertEquals(experienciaEsperada, orc.getExperiencia());
     }
     

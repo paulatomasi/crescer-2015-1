@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class ElfoNoturnoTest
 {
+   private final double DELTA = 0.005; 
     
    @Test
    public void elfoNoturnoNasceComNome(){
@@ -40,10 +41,10 @@ public class ElfoNoturnoTest
        ElfoNoturno elfoNoturno = new ElfoNoturno(nome);
        Orc orc = new Orc ();
        elfoNoturno.atirarFlecha(orc);
-       int vidaEsperada = 95;
+       double vidaEsperada = 95;
        int expEsperada = 3;
        assertEquals(nome, elfoNoturno.getNome());
-       assertEquals(vidaEsperada, elfoNoturno.getVida());
+       assertEquals(vidaEsperada, elfoNoturno.getVida(), DELTA);
        assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
    
@@ -54,10 +55,10 @@ public class ElfoNoturnoTest
        Orc orc = new Orc ();
        elfoNoturno.atirarFlecha(orc);
        elfoNoturno.atirarFlecha(orc);
-       int vidaEsperada = 90;
+       double vidaEsperada = 90.25;
        int expEsperada = 6;
        assertEquals(nome, elfoNoturno.getNome());
-       assertEquals(vidaEsperada, elfoNoturno.getVida());
+       assertEquals(vidaEsperada, elfoNoturno.getVida(), DELTA);
        assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
 
