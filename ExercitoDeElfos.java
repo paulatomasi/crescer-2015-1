@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.*;
 /**
  * Cria um exercito de elfos.
  * 
@@ -20,5 +21,15 @@ public class ExercitoDeElfos {
     
     public Elfo buscarElfo(String nome) {
         return elfosAlistados.get(nome);
+    }
+    
+    public HashMap<String, Elfo> buscarElfosComStatusIguais(Status status) {
+        HashMap<String, Elfo> elfosComStatusIguais = new HashMap<>();
+        for (Elfo elfo : elfosAlistados.values()) {
+           if(elfo.getStatus().equals(status)){
+               elfosComStatusIguais.put(elfo.getNome(), elfo);
+           }
+        }
+        return elfosComStatusIguais;
     }
 }
