@@ -4,7 +4,7 @@ import java.util.*;
  * 
  * @author Paula Tomasi
  */
-public class Personagem{
+public abstract class Personagem{
     protected ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();
     Status status = Status.VIVO;
     protected double vida;
@@ -34,16 +34,6 @@ public class Personagem{
     
     public void adicionarItem(ItemDoInventario itemAdicionar){
         item.add(itemAdicionar);
-    }
-    
-    public void atualizarStatus(){
-        if (vida <100 && vida>0){
-            status = Status.FERIDO;
-        }
-        
-        if (vida == 0){
-            status = Status.MORTO;
-        }
     }
     
     /**
@@ -107,4 +97,6 @@ public class Personagem{
         }
         return builder.toString();
     }
+    
+    abstract void imprimeNome();
 }
