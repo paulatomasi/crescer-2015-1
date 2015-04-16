@@ -62,4 +62,23 @@ public class ElfoNoturnoTest
        assertEquals(expEsperada, elfoNoturno.getExperiencia());
    }
 
+   @Test
+   public void quandoatirarFlechaStatusAtacando() {
+       ElfoNoturno elfoNoturno = new ElfoNoturno("Legolas");
+       Status statusEsperado = Status.ATACANDO;
+       elfoNoturno.atirarFlecha(new Orc());
+       Status statusObtido = elfoNoturno.getStatus();
+       assertEquals(statusEsperado, statusObtido); 
+   } 
+   
+   @Test
+   public void quandoAtirarMuitasFlechasStatusMorto() {
+       ElfoNoturno elfoSuicida = new ElfoNoturno("Legolas");
+       Status statusEsperado = Status.MORTO;
+       for (int x = 0; x < 90; x++){
+           elfoSuicida.atirarFlecha(new Orc());
+       }
+       Status statusObtido = elfoSuicida.getStatus();
+       assertEquals(statusEsperado, statusObtido); 
+   }  
 }
