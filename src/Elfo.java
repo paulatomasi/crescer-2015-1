@@ -38,6 +38,7 @@ public class Elfo extends Personagem
         flechas--;
         experiencia++;
         orc.recebeAtaque();
+        status = Status.ATACANDO;
     }
     
     protected int getFlechas(){
@@ -70,4 +71,7 @@ public class Elfo extends Personagem
         return saoIguais;*/
     }
     
+    public void imprimeNome() {
+        // TODO: System.out.println...
+    }
 }

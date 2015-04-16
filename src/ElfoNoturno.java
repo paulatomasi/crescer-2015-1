@@ -15,19 +15,12 @@ public class ElfoNoturno extends Elfo
         super.flechas = flechas;
     }
 
-    protected void atirarFlecha(Orc orc) {
+    public void atirarFlecha(Orc orc) {
         super.atirarFlecha(orc);
-        this.experiencia+=2;
-        this.vida -= (double) (vida*0.05);
-        atualizarStatus();
-        
-    }
-    
-    public void flechasParaMorrer(Orc orc){
-        while (vida!=0){
-            this.atirarFlecha(orc);
-        }  
-    }
+        experiencia += 2;
+        this.vida -=(vida * 0.05);
+        this.status = (int)this.vida == 0 ? Status.MORTO : this.status;
+    }   
     
     public String toString(){
         return "Elfo noturno: " + super.toString();
