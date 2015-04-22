@@ -8,10 +8,13 @@ from Associado;
 select NomeEmpregado as Nome,
 	   Datediff(month, DataAdmissao, '31/12/2000') as MesesTrabalho
 from Empregado
-where DataAdmissao between '01/05/1980' and '20/01/1982';
+where DataAdmissao between convert(DateTime, '01/05/1980', 103) and convert(DateTime, '20/01/1982', 103);
 
-select top 1 Cargo
-from Empregado;
+select top 1 with ties Cargo,
+	   count(1) as Total
+from Empregado
+group by Cargo
+order by Total desc;
 
 select top 1 Nome
 from Associado
