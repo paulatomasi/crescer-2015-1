@@ -20,3 +20,16 @@ where not exists(Select 1
 				 From Associado
 				 Where Associado.IDCidade = Cidade.IDCidade)
 group by UF;
+
+--4 Faça uma consulta que liste o nome do associado, o nome da cidade, e uma coluna que indique
+--se a cidade é da região SUL (RS, SC, PR), se for imprimir *** (3 asteriscos), senão imprimir nulo.
+select Associado.Nome,
+	   Cidade.Nome as Cidade,
+	   case Cidade.UF
+		    when 'RS' then '***'
+			when 'SC' then '***'
+			when 'PR' then '***'
+			else null
+		end
+from Associado
+LEFT JOIN Cidade on Associado.IDCidade = Cidade.IDCidade;
