@@ -7,7 +7,7 @@ LEFT JOIN Departamento on Departamento.IDDepartamento = Empregado.IDDepartamento
 
 --2 Exibir o nome do associado e sua cidade, exibir também associados sem Cidade relacionada.
 select Associado.Nome,
-	   Cidade.Nome
+	   Cidade.Nome as [Nome da cidade]
 from Associado
 LEFT JOIN Cidade on Associado.IDCidade = Cidade.IDCidade;
 
@@ -23,6 +23,7 @@ group by UF;
 
 --4 Faça uma consulta que liste o nome do associado, o nome da cidade, e uma coluna que indique
 --se a cidade é da região SUL (RS, SC, PR), se for imprimir *** (3 asteriscos), senão imprimir nulo.
+create view vw_Cidade_Regiao as 
 select Associado.Nome,
 	   Cidade.Nome as Cidade,
 	   case Cidade.UF
@@ -30,6 +31,9 @@ select Associado.Nome,
 			when 'SC' then '***'
 			when 'PR' then '***'
 			else null
-		end
+		end [Região Sul]
 from Associado
 LEFT JOIN Cidade on Associado.IDCidade = Cidade.IDCidade;
+
+-- utilizar a view
+select * from vw_Cidade_Regiao 
