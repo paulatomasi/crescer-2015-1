@@ -16,7 +16,8 @@ values ('Galocha Maragato', 35.67, 77.95, 'A')
 
 --4 Identifique e liste os produtos que não tiveram nenhum pedido, considere os relacionamentos no modelo de dados, 
 --pois não há relacionamento direto entre Produto e Pedido (será preciso relacionar PedidoItem).
-select Produto.IDProduto, Produto.Nome
+select IDProduto, Nome
 from Produto
-left join PedidoItem on PedidoItem.IDProduto = Produto.IDProduto
-where PedidoItem.IDPedido is null
+where not exists (select 1
+				  from PedidoItem
+				  where PedidoItem.IDProduto = Produto.IDProduto)
