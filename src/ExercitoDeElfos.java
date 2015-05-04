@@ -60,8 +60,16 @@ public class ExercitoDeElfos {
         return elfosComStatusIguais;
     }
     
+    public void mudaDeEstrategia(EstrategiaDeAtaque novaEstrategia) {
+        estrategia = novaEstrategia;
+    } 
+    
     public void atacarHorda(ArrayList<Orc> orcs) {
         ArrayList<Elfo> elfosQueVãoPraPeleia = buscar(Status.VIVO);
         estrategia.atacarOrcs(elfosQueVãoPraPeleia, orcs);
+    }
+    
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
+        return this.estrategia.getOrdemDoUltimoAtaque();
     }
 }
