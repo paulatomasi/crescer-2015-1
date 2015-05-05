@@ -1,0 +1,72 @@
+<!doctype>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de elfos</title>
+<head>
+<body>
+<!-- Elrond, o Meio-elfo, deseja fazer um cadastro de todos os Elfos disponíveis em seus exércitos. 
+	 Crie um documento cadastro-elfos.html e crie um formulário de postagem dos seguintes dados cadastrais:
+	 Nome do Elfo
+	 Sexo (Masculino / Feminino)
+	 Quantidade de flechas iniciais do Elfo
+	 Data de nascimento
+	 Status inicial do Elfo (Dormindo ou Caçando ou Contando piada)
+	 Itens iniciais do Elfo (Arco e Flecha e/ou Espada de aço Porto-alegrense e/ou Escudo de amburana e/ou Poção HP)
+	 Upload de imagens (apenas image/jpg, image/png)
+	 Botão "Cadastrar" para submeter o formulário.-->
+	 <h3>Cadastro de elfos</h3>
+	<form method="post">
+		<div style="height:50px">
+		<label for="nome">Nome:</label><br>
+		<input id="nome" name="nome" type="text" pattern=".{0}|.{8,}" required placeholder="Pelo menos 6 caractéres"> 
+		</div>
+		
+		<div style="height:50px">
+		<label for="sexo" >Sexo:</label><br>
+		<input id="sexo" type="radio" name="sexo" required value="Feminino">Feminino
+		<input id="sexo" type="radio" name="sexo" required value="Masculino">Masculino 
+		</div>
+		
+		<div style="height:50px">
+		<label for="flechas">Quantidade de flechas iniciais:</label><br>
+		<input id="flechas" name="Flechas" type="text" placeholder="Quantidade de flechas aqui">
+		</div>
+		
+		<div style="height:50px">
+		<label for="datanascimento">Data de nascimento:</label><br>
+		<input id="datanascimento" name="Data de nascimento" type="date" required> 
+		</div>
+		
+		<div style="height:50px">
+		<label for="status">Status:</label><br>
+		<input id="status" type="radio" name="status" value="Dormindo">Dormindo
+		<input id="status" type="radio" name="status" value="Caçando">Caçando 
+		<input id="status" type="radio" name="status" value="Contando piada">Contando piada 
+		</div>
+		
+		<div style="height:50px">
+		<label for="itens">Itens iniciais:</label><br>
+		<input id="itens" type="checkbox" name="itens" value="Arco e flecha">Arco e flecha
+		<input id="itens" type="checkbox" name="itens" value="Espada de aço Porto-alegrense">Espada de aço Porto-alegrense
+		<input id="itens" type="checkbox" name="itens" value="Escudo de amburana">Escudo de amburada
+		<input id="itens" type="checkbox" name="itens" value="Poção HP">Poção HP
+		</div>
+		
+		<div style="height:50px">
+		<label for="imagem">Upload de imagem:</label><br>
+		<input id="imagem" type="file" name="pic" accept="image/jpg, image/png">
+		</div>
+		
+		<div style="height:50px">
+		<input type="submit" value="Cadastrar">
+		</div>
+	</form>
+<body>
+<html>
+
+
+
+
+
+
