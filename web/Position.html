@@ -1,0 +1,38 @@
+<!doctype>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+		.relative{
+			position: relative;
+			top: 10px;
+			left: 10px;
+		}
+		.fixed{
+			position: fixed;
+			top: 50px;
+			left: 700px;
+		}
+		.rectangle{
+			position: relative;
+			top: 100px;
+			width: 450px;
+			height: 200px;
+			background: blue;
+		}
+		.absolute{
+			position: absolute;
+			top: 70px;
+			right: -70px;
+		}
+	</style>
+	<title>Exercício position</title>
+</head>
+<body>
+	<img class ="fixed" height="200px" widht="200px" src="http://www.quickmeme.com/img/ab/abbf3bcb7c2d36dd42dc4a5cbe0bfc8e3f3b4be52523cf73a15420e6f5b5fda2.jpg">
+	<img class ="relative" height="200px" widht="200px" src="http://www.quickmeme.com/img/ab/abbf3bcb7c2d36dd42dc4a5cbe0bfc8e3f3b4be52523cf73a15420e6f5b5fda2.jpg">
+	<div class="rectangle">
+		<img class ="absolute" height="200px" widht="200px" src="http://www.quickmeme.com/img/ab/abbf3bcb7c2d36dd42dc4a5cbe0bfc8e3f3b4be52523cf73a15420e6f5b5fda2.jpg">
+	</div>
+	</body>
+</html>
