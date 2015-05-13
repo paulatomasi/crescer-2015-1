@@ -11,7 +11,10 @@ public class Netflox {
 			System.out.println(g);
 		}
 	}
-	public static void reproduzirFilme(Filme nome){
+	public void adicionarFilme(Filme nome){
+		listaFilme.add(nome);
+	}	
+	public void reproduzirFilme(Filme nome){
 		nome.genero.adicionarQtd();
 		System.out.println("Reproduzindo " + nome);
 	}
