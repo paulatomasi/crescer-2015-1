@@ -26,4 +26,35 @@ public class FilmeTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void reproduzindo() throws Exception{
+		Filme filme = new Filme("Qualquer filme", Genero.DRAMA);
+		Netflox.adicionarFilme(filme);
+		Netflox.reproduzirFilme(filme);
+		int actual = filme.genero.getQtd();
+		int expected = 1;
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void reproduzindoTresFilmesEUmNaoExiste() throws Exception{
+		Filme filme = new Filme("Filme reproduzido duas vezes", Genero.DRAMA);
+		Filme filme2 = new Filme("Filme não adicionado", Genero.ACAO);
+		Filme filme3 = new Filme("Filme reproduzido uma vez", Genero.INDEPENDENTES);
+		Netflox.adicionarFilme(filme);
+		Netflox.adicionarFilme(filme3);
+		Netflox.reproduzirFilme(filme);
+		Netflox.reproduzirFilme(filme);
+		Netflox.reproduzirFilme(filme2);
+		Netflox.reproduzirFilme(filme3);
+		int filmeReproduzidoDuasVezesAtual = filme.genero.getQtd();
+		int filmeReproduzidoDuasVezesEsperado = 3;
+		int filmeNaoAdicionadoAtual = filme2.genero.getQtd();
+		int filmeNaoAdicionadoEsperado = 0;
+		int filmeReproduzidoUmaVezAtual = filme3.genero.getQtd();
+		int filmeReproduzidoUmaVezEsperado = 1;
+		assertEquals(filmeReproduzidoDuasVezesEsperado, filmeReproduzidoDuasVezesAtual);
+		assertEquals(filmeNaoAdicionadoEsperado, filmeNaoAdicionadoAtual);
+		assertEquals(filmeReproduzidoUmaVezEsperado, filmeReproduzidoUmaVezAtual);
+	}
 }
