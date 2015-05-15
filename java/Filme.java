@@ -1,23 +1,24 @@
-package Filmator;
+package filmator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Filme {
 
 	String nome;
 	Genero genero;
-	ArrayList<Ator> listaAtor = new ArrayList<Ator>();
+	List<Ator> listaElenco = new ArrayList<Ator>();
 
 	public Filme(String nome, Genero genero){
 		this.nome = nome;
 		this.genero = genero;
 	}
-	public void listaAtor(Ator ator){
-		listaAtor.add(ator);
+	public void adicionarAtor(Ator ator){
+		listaElenco.add(ator);
 	}
-	public ArrayList<Ator> temAtor(String str){
-		ArrayList<Ator>	listContains = new ArrayList<Ator>();
-		for(Ator ator : listaAtor){
+	public List<Ator> buscarAtor(String str){
+		List<Ator>	listContains = new ArrayList<Ator>();
+		for(Ator ator : listaElenco){
 			if (ator.getNome().contains(str)){
 				listContains.add(ator);
 			}

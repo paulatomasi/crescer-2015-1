@@ -1,4 +1,4 @@
-package Filmator;
+package filmator;
 
 public class Ator {
 	
@@ -12,7 +12,4 @@ public class Ator {
 		return this.nome;
 	}
 	
-	public String toString(){
-		return "Ator: " + this.nome;
-	}
 }
