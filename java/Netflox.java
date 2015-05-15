@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Netflox {
 	ArrayList<Filme> listaFilme = new ArrayList<Filme>();
-	
-	public static void geraRelatorio(){
+
+	public static void gerarRelatorio(){
 		Genero[] genero = Genero.values();
 		for(Genero g : genero){
 			System.out.println(g);
@@ -15,11 +15,12 @@ public class Netflox {
 		listaFilme.add(nome);
 	}	
 	public void reproduzirFilme(Filme nome){
-		nome.genero.adicionarQtd();
-		System.out.println("Reproduzindo " + nome);
+		if (listaFilme.contains(nome)){
+			nome.genero.adicionarQtd();
+			System.out.println("Reproduzindo " + nome);
+		}else{
+			System.out.println("Filme não encontrado");
+		}
 	}
-	public static void main(String[] args) {
-		geraRelatorio();
-	}
-	
+
 }

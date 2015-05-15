@@ -12,4 +12,7 @@ public class Ator {
 		return this.nome;
 	}
 	
+	public String toString(){
+		return "Ator: " + this.nome;
+	}
 }
