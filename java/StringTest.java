@@ -12,7 +12,14 @@ public class StringTest {
 		String esperado = "CWI";
 		assertEquals(esperado, valor.toUpperCase());
 	}
-
+	
+	@Test
+	public void toLowerCase() {
+		String valor = "CWI";
+		String esperado = "cwi";
+		assertEquals(esperado, valor.toLowerCase());
+	}
+	
 	@Test
 	public void replace(){
 		String valor = "qualquer coisa";
