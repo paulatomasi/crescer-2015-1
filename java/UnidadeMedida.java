@@ -1,5 +1,5 @@
 package mestrecuca;
 
 public enum UnidadeMedida {
-	GRAMA, UNIDADE, XÍCARA, COLHER_SOPA;
+	GRAMA, UNIDADE, XICARA, COLHER_SOPA;
 }
