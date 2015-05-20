@@ -2,15 +2,12 @@ package mestrecuca;
 
 public class Ingrediente {
 
-
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((unidade == null) ? 0 : unidade.hashCode());
+		result = prime * result + ((medida == null) ? 0 : medida.hashCode());
 		return result;
 	}
 
@@ -28,20 +25,20 @@ public class Ingrediente {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (unidade != other.unidade)
+		if (medida != other.medida)
 			return false;
 		return true;
 	}
 
 	String nome;
 	double quantidade;
-	UnidadeMedida unidade;
+	UnidadeMedida medida;
 	double preco;
 	
 	public Ingrediente(String nome, double quantidade, double preco, UnidadeMedida unidade){
 		this.nome = nome;
 		this.quantidade = quantidade;
-		this.unidade = unidade;
+		this.medida = unidade;
 		this.preco = preco;
 	}
 
@@ -51,6 +48,14 @@ public class Ingrediente {
 
 	public String getNome() {
 		return this.nome;
+	}
+
+	public UnidadeMedida getMedida() {
+		return this.medida;
+	}
+
+	public double getQuantidade() {
+		return this.quantidade;
 	}
 
 }
