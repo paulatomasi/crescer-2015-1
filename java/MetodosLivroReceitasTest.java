@@ -23,15 +23,20 @@ public class MetodosLivroReceitasTest {
 		listaIngredientesPanqueca.add(farinha);
 		listaIngredientesPanqueca.add(ovo);		
 
-		//LISTA DE INSTRUCAO 1
+		//LISTA DE INSTRUCAO
 		List<Instrucao> instrucaoBolo = new ArrayList<Instrucao>();
 		instrucaoBolo.add(new Instrucao("Misturar e por no forno"));
 		List<Instrucao> instrucaoPanqueca = new ArrayList<Instrucao>();
 		instrucaoPanqueca.add(new Instrucao("Instrucao"));
 
-		//LISTA DE RECEITA
+		//RECEITAS
 		Receita bolo = new Receita("Bolo", listaIngredientesBolo, instrucaoBolo);
 		Receita panqueca = new Receita("Panqueca", listaIngredientesPanqueca, instrucaoPanqueca);
+		
+		//LISTA DE RECEITAS
+		List<Receita> listaReceitas = new ArrayList<Receita>();
+		listaReceitas.add(bolo);
+		listaReceitas.add(panqueca);
 		
 		//LIVRO DE RECEITAS
 		MetodosLivroReceitas livroReceitas = new MetodosLivroReceitas();
@@ -43,5 +48,7 @@ public class MetodosLivroReceitasTest {
 		listaDeIngredienteProibidos.add(fermento);
 		
 		System.out.println(livroReceitas.protecaoAosAlergicos(listaDeIngredienteProibidos));
+		System.out.println(livroReceitas.listaCompras(listaReceitas));
 	}
+	
 }
