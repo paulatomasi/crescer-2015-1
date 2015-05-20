@@ -34,13 +34,13 @@ public class Receita {
 	public String toString(){
 		return getNome();
 	}
-	public boolean pesquisar(Ingrediente ingrediente){
-		boolean pode = true;
-		for (Ingrediente ingredienteAtual : ingredientes) {
-			if( ingredienteAtual.getNome().equals(ingrediente.getNome())){
-				pode = false;
+	
+	public boolean possuiIngredienteProibido(List<Ingrediente> ingredientesProibidos){
+		for (Ingrediente ingrediente : ingredientes){
+			if(ingredientesProibidos.contains(ingrediente)){
+				return true;
 			}
 		}
-		return pode;
+		return false;	
 	}
 }

@@ -20,6 +20,18 @@ public class MetodosLivroReceitas {
 			System.out.println("Receita nula ou sem nome");
 		}
 	}
+	
+	//Excluir uma receita
+		/*for (int x = 0; x<=livroReceitas.size(); x++){
+			if (livroReceitas.get(x).getNome() == nome){
+				livroReceitas.remove(x);
+			}
+		}*/
+		public void excluir(String nome){
+			Receita receita = buscaReceitaPeloNome(nome);
+			int indiceReceita = livroReceitas.indexOf(receita);
+			livroReceitas.remove(indiceReceita);
+		}
 
 	//Atualizar uma receita
 	public void atualizar(String nome, Receita receitaAtualizada){
@@ -31,32 +43,28 @@ public class MetodosLivroReceitas {
 		}
 	}
 
-	//Excluir uma receita
-	public void excluir(String nome){
-		for (int x = 0; x<=livroReceitas.size(); x++){
-			if (livroReceitas.get(x).getNome() == nome){
-				livroReceitas.remove(x);
-			}
-		}
-	}
-
 	//Listar todas receitas do livro de receitas
 	public List<Receita> getTodasReceitas(){
 		return livroReceitas;
 	}
 
 	//Buscar receita por nome
+	/*for (int x = 0; x<=livroReceitas.size(); x++){
+		if (livroReceitas.get(x).getNome() == nome){
+			return livroReceitas.get(x);
+		}
+	}*/
 	public Receita buscaReceitaPeloNome(String nome){
-		for (int x = 0; x<=livroReceitas.size(); x++){
-			if (livroReceitas.get(x).getNome() == nome){
-				return livroReceitas.get(x);
+		for(Receita receita : livroReceitas){
+			if(receita.getNome().equals(nome)){
+				return receita;
 			}
 		}
 		throw new ReceitaNaoEncontrada();
 	}
-
+	
 	//Calcula o preço total da receita
-	public void calcularPreço(Receita receita){
+	public void calcularPreco(Receita receita){
 		for (int x = 0; x<=receita.getIngredientes().size(); x++){
 			double valorTotal =+ receita.getIngredientes().get(x).getPreco();
 		}
@@ -65,19 +73,30 @@ public class MetodosLivroReceitas {
 	//Calcula valor total de uma lista de receitas
 	public void valorTotalLista(List<Receita> lista){
 		for (int x = 0; x<=lista.size(); x++){
-			calcularPreço(lista.get(x));
+			calcularPreco(lista.get(x));
 		}
 	}
 
 	//Retorna receitas sem os ingredientes proibidos
+	/*for (Receita receitaAtual : livroReceitas){	
+		List<Ingrediente> listaIngredientesDaReceitaAtual = receitaAtual.getIngredientes();
+		for(int x = 0; x < listaIngredientesDaReceitaAtual.size(); x++){
+			Ingrediente ingredienteAtual = listaIngredientesDaReceitaAtual.get(x);
+			if(!ingredientesProibidos.contains(ingredienteAtual) && !receitasLegais.contains(receitaAtual)){
+				receitasLegais.add(receitaAtual);
+				continue;
+			} else if(ingredientesProibidos.contains(ingredienteAtual) && receitasLegais.contains(receitaAtual)){
+				receitasLegais.remove(receitaAtual);
+				break;
+			}
+			break;
+		}
+	}*/
 	public List<Receita> protecaoAosAlergicos(List<Ingrediente> ingredientesProibidos){
 		List<Receita> receitasLegais = new ArrayList<Receita>();
-		for (Receita receitaAtual : livroReceitas) {
-			for (Ingrediente ingredienteAtual : ingredientesProibidos) {
-				//Utiliza o método pesquisar (Receita)
-				if( receitaAtual.pesquisar(ingredienteAtual) ){
-					receitasLegais.add(receitaAtual);
-				}
+		for (Receita receita : livroReceitas){
+			if (!receita.possuiIngredienteProibido(ingredientesProibidos)){
+				receitasLegais.add(receita);
 			}
 		}
 		return receitasLegais;
