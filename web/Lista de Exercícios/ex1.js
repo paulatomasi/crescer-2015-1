@@ -23,7 +23,7 @@ v$('#myList li:not(.current)');
 
 //1H Faca uma instrucao jQuery que selecione todos os elementos que sao os últimos filhos no HTML do tipo img
 // **OU** que sao os últimos filhos no HTML do tipo h3 
-//Gambiarra var ex1H = $('img:eq(2), h3:last-of-type :last');
+//$('li:last-of-type img, li:last-of-type h3')
 $('img:last, h3:last');
 
 //1I Faca uma instrucao jQuery que conte o número de caracteres somados dos textos de todos `li` que estao APOS o `li`
@@ -36,5 +36,5 @@ $('img:last, h3:last');
 //		</ul>
 //javascript
 //'Azul'.length + 'Verde'.length => 9
-//$('#myList .current').nextAll().text().length;
-$('#myList .current ~ li').text().length;
+//$('#myList .current ~ li').text().length;
+$('#myList .current').nextAll().text().length;
