@@ -17,17 +17,19 @@ public class HomeController {
 
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		//DAO = data acess object
-		FilmeDao dao = new FilmeDao();
-		model.addAttribute("filmes",  dao.buscaTodosFilmes());
-		return "nomeDoArquivo";
+	public String home() {
+		return "home";
 	}
 	
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public String salvar (Filme filme, Model model) {
-		System.out.println(filme.getNome());
-		return "nomeDoArquivo";
+	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
+	public String cadastraFilme() {		
+		return "cadastro";
+	}
+	
+	@RequestMapping(value = "/consulta", method = RequestMethod.GET)
+	public String consultaFilme(Model model){
+		model.addAttribute("Filmes", FilmeDao.getFilmes());		
+		return "consulta";		
 	}
 }
 
