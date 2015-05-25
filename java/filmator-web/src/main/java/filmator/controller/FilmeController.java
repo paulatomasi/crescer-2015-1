@@ -9,12 +9,12 @@ import filmator.model.Filme;
 
 @Controller
 public class FilmeController {
-	FilmeDao filmesalvos = new FilmeDao();
+	FilmeDao listaFilmes = new FilmeDao();
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme){
-		filmesalvos.salvar(filme);		
-		return "cadastro";
+		listaFilmes.salvar(filme);		
+		return "home";
 	}
 	
 	
