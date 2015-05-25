@@ -31,8 +31,8 @@ public class Filme {
 		return genero;
 	}
 
-	public void setGenero(Genero genero) {
-		this.genero = genero;
+	public void setGenero(String genero) {
+		this.genero = Genero.valueOf(genero);
 	}
 
 	public int getAnoLancamento() {
