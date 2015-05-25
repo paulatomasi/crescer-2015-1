@@ -5,6 +5,16 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/png" href="http://pics.who.pho.to/img/thumbs/onlinesubtitrat.org_favicon.jpg"/>
 	    <title>Filmator - Consulta</title>
+	    <style>
+		    table, th, td {
+	  			border: 1px solid black;
+	  			text-align: center;
+	  			padding: 3px;
+			}
+			th, td{
+				width: 200px;
+			}
+	    </style>
 	    
 	    <!-- Bootstrap Core CSS -->
 	    <link href="http://ironsummitmedia.github.io/startbootstrap-bare/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
@@ -60,31 +70,24 @@
     </header>
     
 	<div align="center">
-		<table>
-			<tr>
-				<th>Imagem</th>  
-				<th>Nome</th>
-				<th>Gênero</th>
-				<th>Ano de Lançamento</th>
-				<th>Diretor</th>
-				<th>Sinopse</th>
+		<table border=1>
+			<tr> 
+				<td>Nome</td>
+				<td>Gênero</td>
+				<td>Ano de Lançamento</td>
+				<td>Diretor</td>
+				<td>Sinopse</td>
 				  
 			</tr>
-		
-		
-			<tr>
 			{{#Filmes}}
-			{{#imagem}}	
-				<td><img width="150px" height="150px" src={{imagem}}></img></td>
-				{{/imagem}}	
+			<tr>
 				<td>{{nome}}</td>	
 				<td>{{genero}}</td>
 				<td>{{anoLancamento}}</td>
 				<td>{{diretor}}</td>
 				<td>{{sinopse}}</td>
-				{{/Filmes}}
 			</tr>
-		
+			{{/Filmes}}
 		</table>	
 	<div>
 
