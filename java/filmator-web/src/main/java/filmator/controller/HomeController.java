@@ -2,6 +2,8 @@ package filmator.controller;
 
 import java.util.Arrays;
 
+import javax.inject.Inject;
+
 import org.mockito.InjectMocks;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,9 @@ import filmator.model.Genero;
 
 @Controller
 public class HomeController {
-
+	
+	@Inject
+	private FilmeDao filmeDao;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -28,8 +32,9 @@ public class HomeController {
 	
 	@RequestMapping(value = "/consulta", method = RequestMethod.GET)
 	public String consultaFilme(Model model){
-		model.addAttribute("Filmes", FilmeDao.getFilmes());		
+		model.addAttribute("Filmes", filmeDao.consultaFilme());		
 		return "consulta";		
 	}
+	
 }
 
