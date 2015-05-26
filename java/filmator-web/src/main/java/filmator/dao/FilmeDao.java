@@ -29,7 +29,7 @@ import filmator.model.Filme;import filmator.model.Genero;
 @Component
 public class FilmeDao {
 
-	
+
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 
@@ -38,22 +38,22 @@ public class FilmeDao {
 				filme.getNome(),
 				filme.getGenero().name(),
 				filme.getAnoLancamento(),
-				filme.getDiretor(),
+				filme.getDiretor(), 
 				filme.getSinopse()
 				);
 	}
-	
+
 	public List<Filme> consultaFilme(){
 		return jdbcTemplate.query("SELECT * FROM Filme", (ResultSet rs, int rowNum) -> {	
 			Filme filme = new Filme();
-				filme.setNome(rs.getString("nome"));
-				filme.setGenero(Genero.valueOf(rs.getString("genero")));
-				filme.setAnoLancamento(rs.getInt("ano_lancamento"));
-				filme.setDiretor(rs.getString("diretor"));
-				filme.setSinopse(rs.getString("sinopse"));
+			filme.setNome(rs.getString("nome"));
+			filme.setGenero(Genero.valueOf(rs.getString("genero")));
+			filme.setAnoLancamento(rs.getInt("ano_lancamento"));
+			filme.setDiretor(rs.getString("diretor"));
+			filme.setSinopse(rs.getString("sinopse"));
 			return filme;
 		});
-		
+
 	}
-	
+
 }

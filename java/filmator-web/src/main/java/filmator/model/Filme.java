@@ -7,10 +7,10 @@ public class Filme {
 	private int anoLancamento;
 	private String diretor;
 	private String sinopse;
-	
+
 	public Filme(){
 	}
-	
+
 	public Filme(String nome, Genero genero, int anoLancamento, String diretor, String sinopse){
 		this.nome = nome;
 		this.genero = genero;
@@ -58,5 +58,5 @@ public class Filme {
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
 	}
-	
+
 }

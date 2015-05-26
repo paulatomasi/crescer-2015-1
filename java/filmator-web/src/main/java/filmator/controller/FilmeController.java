@@ -1,4 +1,4 @@
-	package filmator.controller;
+package filmator.controller;
 
 import javax.inject.Inject;
 
@@ -14,12 +14,12 @@ import filmator.model.Filme;
 public class FilmeController {
 	@Inject
 	FilmeDao listaFilmes;
-	
+
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme){
 		System.out.println(filme.getNome());
 		listaFilmes.salvar(filme);		
 		return "redirect:/";
 	}
-	
+
 }
