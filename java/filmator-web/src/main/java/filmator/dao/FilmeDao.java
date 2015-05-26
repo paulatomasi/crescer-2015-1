@@ -33,7 +33,7 @@ public class FilmeDao {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 
-	public void salvar(Filme filme){
+	public void salvarFilme(Filme filme){
 		jdbcTemplate.update("INSERT INTO Filme (nome, genero, ano_lancamento, diretor, sinopse) VALUES (?, ?, ?, ?, ?)", 
 				filme.getNome(),
 				filme.getGenero().name(),

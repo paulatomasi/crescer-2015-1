@@ -15,10 +15,9 @@ public class FilmeController {
 	@Inject
 	FilmeDao listaFilmes;
 
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public String salvar(Filme filme){
-		System.out.println(filme.getNome());
-		listaFilmes.salvar(filme);		
+	@RequestMapping(value = "/salvarFilme", method = RequestMethod.POST)
+	public String salvarFilme(Filme filme){
+		listaFilmes.salvarFilme(filme);		
 		return "redirect:/";
 	}
 
