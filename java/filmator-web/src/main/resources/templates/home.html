@@ -5,7 +5,8 @@
 		<title>Filmator</title>
 	</head>
 	<body>
-		{{> nav}}
+		{{> navlogin}}
+		{{> header}}
 		<div align="center">
 			<form action="/cadastroFilme" method="GET">
 				<input type="submit" value="Cadastrar filme"></input>
@@ -15,9 +16,6 @@
 				<input type="submit" value="Consultar filmes"></input>
 			</form>
 			
-			<form action="/cadastroUsuario" method="GET">
-				<input type="submit" value="Cadastrar usuário"></input>
-			</form>
 		</div>
 		{{> scripts}}
 	</body>
