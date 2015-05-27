@@ -30,5 +30,9 @@ public class HomeController {
 		model.addAttribute("Filmes", filmeDao.consultaFilme());		
 		return "consulta";		
 	}
-
+	
+	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
+	public String dadastrarUsuario() {		
+		return "usuario";
+	}
 }

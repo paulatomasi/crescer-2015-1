@@ -18,7 +18,7 @@ public class UsuarioController {
 	UsuarioDao listaUsuarios;
 
 	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
-	public String salvar(Usuario usuario){
+	public String salvarUsuario(Usuario usuario){
 		listaUsuarios.salvarUsuario(usuario);		
 		return "redirect:/";
 	}
