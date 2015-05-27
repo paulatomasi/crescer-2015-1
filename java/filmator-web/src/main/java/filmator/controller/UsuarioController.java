@@ -26,7 +26,11 @@ public class UsuarioController {
 	@RequestMapping(value = "/autenticarUsuario", method = RequestMethod.POST)
 	public String autenticarUsuario(String login, String senha){	
 		if (listaUsuarios.autenticarUsuario(login, senha)){
-			return "/home";
+			if (login.equals("admin")){
+				return "/home";
+			}else{
+				return "/homeUsuario";
+			}
 		}
 		return "redirect:/erro";
 	}

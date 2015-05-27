@@ -29,6 +29,11 @@ public class HomeController {
 	public String home() {		
 		return "home";
 	}
+	
+	@RequestMapping(value = "/homeUsuario", method = RequestMethod.GET)
+	public String homeUsuario() {		
+		return "homeUsuario";
+	}
 
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
 	public String cadastroFilme() {		
@@ -39,6 +44,12 @@ public class HomeController {
 	public String consultaFilme(Model model){
 		model.addAttribute("Filmes", filmeDao.consultaFilme());		
 		return "consulta";		
+	}
+	
+	@RequestMapping(value = "/consultaUsuario", method = RequestMethod.GET)
+	public String consultaFilmeUsuario(Model model){
+		model.addAttribute("Filmes", filmeDao.consultaFilme());		
+		return "consultaUsuario";		
 	}
 	
 	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.GET)
