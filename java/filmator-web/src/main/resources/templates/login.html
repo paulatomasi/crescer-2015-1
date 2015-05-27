@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{{> head}}
+		{{> styleformulario}}
+		<meta charset="utf-8">
+		<title>Filmator - Login</title>
+	</head>
+	<body>
+		{{> nav}} 
+		<div align="center"> 
+			<form action="/autenticarUsuario" method="post"> 
+				<div class="divformulario"> 
+					<label>Login:</label> 
+					<input name="login" type="text" required placeholder="Seu login"></input> 
+				</div> 
+
+				
+				<div class="divformulario"> 
+					<label>Senha:</label> 
+					<input name="senha" type="password" required placeholder="Sua senha"></input> 
+				</div> 
+				
+				<div class="divformulario"> 
+					<input type="submit" required value="Login"> 
+				</div>
+			</form> 
+		</div> 
+		{{> scripts}} 
+	</body> 
+</html>
