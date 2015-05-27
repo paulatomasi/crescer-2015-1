@@ -18,7 +18,7 @@ public class FilmeController {
 	@RequestMapping(value = "/salvarFilme", method = RequestMethod.POST)
 	public String salvarFilme(Filme filme){
 		listaFilmes.salvarFilme(filme);		
-		return "redirect:/";
+		return "redirect:/home";
 	}
 
 }
