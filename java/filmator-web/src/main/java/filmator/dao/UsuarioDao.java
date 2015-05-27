@@ -40,4 +40,22 @@ public class UsuarioDao {
 				usuario.getSenha()
 				);
 	}
+	
+	public boolean autenticarUsuario(String login, String senha) {
+		List<Usuario> usuario = this.jdbcTemplate.query("SELECT * FROM Usuario WHERE Login = ? AND senha = ?",
+				new RowMapper<Usuario>() {
+					public Usuario mapRow(ResultSet results, int rowNum)
+							throws SQLException {
+						Usuario usuario = new Usuario();
+						usuario.setLogin(results.getString("login"));
+						usuario.setSenha(results.getString("senha"));
+						return usuario;
+					}
+				}, login, senha);
+
+		if (!usuario.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
 }

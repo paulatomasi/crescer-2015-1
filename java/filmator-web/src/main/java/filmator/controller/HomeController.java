@@ -19,10 +19,15 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {		
+		return "login";
+	}
 
-	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
-	public String cadastraFilme() {		
-		return "cadastro";
+	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
+	public String cadastroFilme() {		
+		return "cadastroFilme";
 	}
 
 	@RequestMapping(value = "/consulta", method = RequestMethod.GET)
@@ -31,8 +36,13 @@ public class HomeController {
 		return "consulta";		
 	}
 	
-	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
-	public String dadastrarUsuario() {		
-		return "usuario";
+	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.GET)
+	public String cadastrarUsuario() {		
+		return "cadastroUsuario";
+	}
+	
+	@RequestMapping(value = "/erro", method = RequestMethod.GET)
+	public String erro() {
+		return "erro";
 	}
 }
