@@ -16,13 +16,18 @@ public class HomeController {
 	private FilmeDao filmeDao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		return "home";
+	public String homeLogin() {
+		return "homelogin";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {		
+	public String login() {
 		return "login";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {		
+		return "home";
 	}
 
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
