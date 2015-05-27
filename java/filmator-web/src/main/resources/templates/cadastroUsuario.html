@@ -7,10 +7,12 @@
 		<title>Filmator - Cadastro de usuário</title>
 	</head>
 	<body>
-		{{> nav}} 
+		{{> navlogin}}
 		{{> header}}
 		<div align="center"> 
 			<form action="/salvarUsuario" method="post"> 
+				<h3>Cadastre um novo usuário:</h3>
+				<br>
 				<div class="divformulario"> 
 					<label>Login:</label> 
 					<input name="login" type="text" required placeholder="Login"></input> 
