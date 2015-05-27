@@ -27,9 +27,9 @@ public class UsuarioController {
 	public String autenticarUsuario(String login, String senha){	
 		if (listaUsuarios.autenticarUsuario(login, senha)){
 			if (login.equals("admin")){
-				return "/home";
+				return "redirect/home";
 			}else{
-				return "/homeUsuario";
+				return "redirect/homeUsuario";
 			}
 		}
 		return "redirect:/erro";
