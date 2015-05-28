@@ -16,7 +16,8 @@
 					<td>Gênero</td>
 					<td>Ano de Lançamento</td>
 					<td>Diretor</td>
-					<td>Sinopse</td>  
+					<td>Sinopse</td> 
+					<td>Avaliação</td> 
 				</tr>
 				
 				{{#Filmes}}
@@ -29,6 +30,9 @@
 					<td>{{sinopse}}</td>
 				</tr>
 				{{/Filmes}}
+				{{#Avaliacao}}
+					<td>{{nota}}</td>
+				{{/Avaliacao}}
 			</table>	
 		</div>
 		<br>
