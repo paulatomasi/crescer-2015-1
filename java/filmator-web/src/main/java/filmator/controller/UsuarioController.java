@@ -23,13 +23,13 @@ public class UsuarioController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/autenticarUsuario", method = RequestMethod.POST)
-	public String autenticarUsuario(String login, String senha){	
-		if (listaUsuarios.autenticarUsuario(login, senha)){
+	@RequestMapping(value = "/autenticar", method = RequestMethod.POST)
+	public String autenticar(String login, String senha){	
+		if (listaUsuarios.autenticar(login, senha)){
 			if (login.equals("admin")){
-				return "redirect/home";
+				return "redirect:/home";
 			}else{
-				return "redirect/homeUsuario";
+				return "redirect:/homeUsuario";
 			}
 		}
 		return "redirect:/erro";

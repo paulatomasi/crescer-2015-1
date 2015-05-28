@@ -41,7 +41,7 @@ public class UsuarioDao {
 				);
 	}
 	
-	public boolean autenticarUsuario(String login, String senha) {
+	public boolean autenticar(String login, String senha) {
 		List<Usuario> usuario = this.jdbcTemplate.query("SELECT * FROM Usuario WHERE Login = ? AND senha = ?",
 				new RowMapper<Usuario>() {
 					public Usuario mapRow(ResultSet results, int rowNum)
