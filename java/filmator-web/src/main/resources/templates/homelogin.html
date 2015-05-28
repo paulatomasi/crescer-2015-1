@@ -1,18 +1,18 @@
 <html>
 	<head>
 		{{> head}}
+		{{> stylebotao}}
 		<meta charset="utf-8">	   
 		<title>Filmator</title>
 	</head>
 	<body>
 		{{> headerSemLogin}}
 		<div align="center">
-			<form action="/cadastroUsuario" method="GET">
-				<input type="submit" value="Cadastrar usuário"></input>
-			</form>
-			<form action="/login" method="GET">
-				<input type="submit" value="Login"></input>
-			</form>
+		
+			<a href="/cadastroUsuario" class=btn>Cadastrar usuário</a>
+			<br><br>
+			<a href="/login" class=btn>Login</a>
+			
 		</div>
 		{{> scripts}}
 	</body>

@@ -1,6 +1,7 @@
 <html>
 	<head>
 		{{> head}}
+		{{> stylebotao}}
 		<meta charset="utf-8">	   
 		<title>Filmator</title>
 	</head>
@@ -8,9 +9,8 @@
 		{{> navlogin}}
 		{{> header}}
 		<div align="center">
-			<form action="/consultaUsuario" method="GET">
-				<input type="submit" value="Consultar filmes"></input>
-			</form>
+		
+			<a href="/consultaUsuario" class=btn>Consultar filmes</a>
 			
 		</div>
 		{{> scripts}}

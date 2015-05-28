@@ -1,6 +1,7 @@
 <html>
 	<head>
 		{{> head}}
+		{{> stylebotao}}
 		<meta charset="utf-8">	   
 		<title>Filmator</title>
 	</head>
@@ -8,13 +9,10 @@
 		{{> navlogin}}
 		{{> header}}
 		<div align="center">
-			<form action="/cadastroFilme" method="GET">
-				<input type="submit" value="Cadastrar filme"></input>
-			</form>
-			
-			<form action="/consulta" method="GET">
-				<input type="submit" value="Consultar filmes"></input>
-			</form>
+		
+			<a href="/cadastroFilme" class=btn>Cadastrar filme</a>
+			<br><br>
+			<a href="/consulta" class=btn>Consulta</a>
 			
 		</div>
 		{{> scripts}}
