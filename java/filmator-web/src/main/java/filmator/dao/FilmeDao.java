@@ -34,12 +34,13 @@ public class FilmeDao {
 	private JdbcTemplate jdbcTemplate;
 
 	public void salvarFilme(Filme filme){
-		jdbcTemplate.update("INSERT INTO Filme (nome, genero, ano_lancamento, diretor, sinopse) VALUES (?, ?, ?, ?, ?)", 
+		jdbcTemplate.update("INSERT INTO Filme (nome, genero, ano_lancamento, diretor, sinopse, imagem) VALUES (?, ?, ?, ?, ?, ?)", 
 				filme.getNome(),
 				filme.getGenero().name(),
 				filme.getAnoLancamento(),
 				filme.getDiretor(), 
-				filme.getSinopse()
+				filme.getSinopse(),
+				filme.getImagem()
 				);
 	}
 
@@ -51,6 +52,7 @@ public class FilmeDao {
 			filme.setAnoLancamento(rs.getInt("ano_lancamento"));
 			filme.setDiretor(rs.getString("diretor"));
 			filme.setSinopse(rs.getString("sinopse"));
+			filme.setImagem(rs.getString("imagem"));
 			return filme;
 		});
 
