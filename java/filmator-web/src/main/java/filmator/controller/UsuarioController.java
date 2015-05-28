@@ -1,6 +1,7 @@
 package filmator.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,12 +25,14 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/autenticar", method = RequestMethod.POST)
-	public String autenticar(String login, String senha){	
+	public String autenticar(String login, String senha, Model model, HttpSession session){	
 		if (listaUsuarios.autenticar(login, senha)){
 			if (login.equals("admin")){
+				session.setAttribute("administrador", true);
 				return "redirect:/home";
 			}else{
-				return "redirect:/homeUsuario";
+				session.setAttribute("administrador", false);
+				return "redirect:/home";
 			}
 		}
 		return "redirect:/erro";

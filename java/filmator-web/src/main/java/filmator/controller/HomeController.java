@@ -1,6 +1,7 @@
 package filmator.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +27,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home() {		
+	public String home(HttpSession session, Model model) {
+		Boolean administrador = (Boolean) session.getAttribute("administrador");
+		if(administrador != null && administrador) {
+			model.addAttribute("menuAdministrador", true);
+		}else{
+			model.addAttribute("menuAdministrador", false);
+		}
 		return "home";
-	}
-	
-	@RequestMapping(value = "/homeUsuario", method = RequestMethod.GET)
-	public String homeUsuario() {		
-		return "homeUsuario";
 	}
 
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
@@ -46,11 +48,6 @@ public class HomeController {
 		return "consulta";		
 	}
 	
-	@RequestMapping(value = "/consultaUsuario", method = RequestMethod.GET)
-	public String consultaFilmeUsuario(Model model){
-		model.addAttribute("Filmes", filmeDao.consultaFilme());		
-		return "consultaUsuario";		
-	}
 	
 	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.GET)
 	public String cadastrarUsuario() {		
