@@ -9,13 +9,14 @@
 		{{> navlogin}}
 		{{> header}}
 		<div align="center">
+		{{#usuarioLogado}}
 			{{#menuAdministrador}}
 			<a href="/cadastroFilme" class=btn>Cadastrar filme</a>
 			{{/menuAdministrador}}
 			<br><br>
 			<a href="/consulta" class=btn>Consulta</a>
-			
 		</div>
+		{{/usuarioLogado}}
 		{{> scripts}}
 	</body>
 </html>

@@ -29,17 +29,37 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(HttpSession session, Model model) {
 		Boolean administrador = (Boolean) session.getAttribute("administrador");
-		if(administrador != null && administrador) {
-			model.addAttribute("menuAdministrador", true);
+		Boolean usuarioLogado = (Boolean) session.getAttribute("usuarioLogado");
+		if (usuarioLogado != null){
+			model.addAttribute("usuarioLogado", true);
+			if(administrador != null && administrador) {
+				model.addAttribute("menuAdministrador", true);
+			}else{
+				model.addAttribute("menuAdministrador", false);
+			}
+			return "home";
 		}else{
-			model.addAttribute("menuAdministrador", false);
+			return "/";
 		}
-		return "home";
 	}
 
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
-	public String cadastroFilme() {
-		return "cadastroFilme";
+	public String cadastroFilme(HttpSession session, Model model) {
+		Boolean administrador = (Boolean) session.getAttribute("administrador");
+		Boolean usuarioLogado = (Boolean) session.getAttribute("usuarioLogado");
+		if (usuarioLogado != null){
+			model.addAttribute("usuarioLogado", true);
+			if(administrador != null && administrador) {
+				model.addAttribute("menuAdministrador", true);
+				return "cadastroFilme";
+			}else{
+				model.addAttribute("menuAdministrador", false);
+				return "erro";
+			}
+			
+		}else{
+			return "/";
+		}
 	}
 
 	@RequestMapping(value = "/consulta", method = RequestMethod.GET)
