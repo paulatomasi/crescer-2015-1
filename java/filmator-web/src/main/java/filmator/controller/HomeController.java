@@ -38,7 +38,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
-	public String cadastroFilme() {		
+	public String cadastroFilme() {
 		return "cadastroFilme";
 	}
 
