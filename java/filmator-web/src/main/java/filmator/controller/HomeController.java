@@ -39,7 +39,7 @@ public class HomeController {
 			}
 			return "home";
 		}else{
-			return "/";
+			return "erro";
 		}
 	}
 
@@ -58,7 +58,7 @@ public class HomeController {
 			}
 			
 		}else{
-			return "/";
+			return "erro";
 		}
 	}
 
