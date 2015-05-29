@@ -27,7 +27,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/autenticar", method = RequestMethod.POST)
 	public String autenticar(String login, String senha, Model model, HttpSession session){	
 		if (listaUsuarios.autenticar(login, senha)){
-			session.setAttribute("usuarioLogado", true);
+			session.setAttribute("usuarioLogado", login);
 			if (login.equals("admin")){
 				session.setAttribute("administrador", true);
 				return "redirect:/home";

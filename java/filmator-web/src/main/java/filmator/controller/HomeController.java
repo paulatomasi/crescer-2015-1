@@ -29,7 +29,7 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(HttpSession session, Model model) {
 		Boolean administrador = (Boolean) session.getAttribute("administrador");
-		Boolean usuarioLogado = (Boolean) session.getAttribute("usuarioLogado");
+		String usuarioLogado = (String) session.getAttribute("usuarioLogado");
 		if (usuarioLogado != null){
 			model.addAttribute("usuarioLogado", true);
 			if(administrador != null && administrador) {
@@ -46,7 +46,7 @@ public class HomeController {
 	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
 	public String cadastroFilme(HttpSession session, Model model) {
 		Boolean administrador = (Boolean) session.getAttribute("administrador");
-		Boolean usuarioLogado = (Boolean) session.getAttribute("usuarioLogado");
+		String usuarioLogado = (String) session.getAttribute("usuarioLogado");
 		if (usuarioLogado != null){
 			model.addAttribute("usuarioLogado", true);
 			if(administrador != null && administrador) {
@@ -72,6 +72,20 @@ public class HomeController {
 	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.GET)
 	public String cadastrarUsuario() {		
 		return "cadastroUsuario";
+	}
+	
+	
+		
+	@RequestMapping(value = "/avaliacao", method = RequestMethod.GET)
+	public String avaliacao(HttpSession session, Model model) {
+		String usuarioLogado = (String) session.getAttribute("usuarioLogado");
+		if (usuarioLogado != null){
+			model.addAttribute("usuarioLogado", true);
+			model.addAttribute("Filmes", filmeDao.consultaFilme());		
+			return "avaliacao";
+		}else{
+			return "erro";
+		}
 	}
 	
 	@RequestMapping(value = "/erro", method = RequestMethod.GET)
