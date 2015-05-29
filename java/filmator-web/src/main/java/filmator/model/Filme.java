@@ -12,7 +12,6 @@ public class Filme {
 
 	public Filme(){
 	}
-
 	
 	public int getIdFilme() {
 		return idFilme;
@@ -69,5 +68,5 @@ public class Filme {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
-
+	
 }
