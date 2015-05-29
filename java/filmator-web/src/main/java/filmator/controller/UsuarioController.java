@@ -28,7 +28,6 @@ public class UsuarioController {
 	public String autenticar(String login, String senha, Model model, HttpSession session){	
 		if (listaUsuarios.autenticar(login, senha)){
 			session.setAttribute("usuarioLogado", true);
-			model.addAttribute("usuarioLogado", true);
 			if (login.equals("admin")){
 				session.setAttribute("administrador", true);
 				return "redirect:/home";
