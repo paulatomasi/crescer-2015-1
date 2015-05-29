@@ -44,8 +44,10 @@ public class FilmeDao {
 				);
 	}
 
+	
+	
 	public List<Filme> consultaFilme(){
-		return jdbcTemplate.query("SELECT * FROM Filme", (ResultSet rs, int rowNum) -> {	
+		return jdbcTemplate.query("SELECT f.*, (select avg(nota) from Avaliacao a where a.id_filme = f.id_filme) as nota FROM Filme f", (ResultSet rs, int rowNum) -> {	
 			Filme filme = new Filme();
 			filme.setIdFilme(rs.getInt("id_filme"));
 			filme.setNome(rs.getString("nome"));
@@ -54,6 +56,7 @@ public class FilmeDao {
 			filme.setDiretor(rs.getString("diretor"));
 			filme.setSinopse(rs.getString("sinopse"));
 			filme.setImagem(rs.getString("imagem"));
+			filme.setNota(rs.getDouble("nota"));
 			return filme;
 		});
 

@@ -9,7 +9,7 @@ public class Filme {
 	private String diretor;
 	private String sinopse;
 	private String imagem;
-	private int nota;
+	private double nota;
 
 	public Filme(){
 	}
@@ -70,11 +70,11 @@ public class Filme {
 		this.imagem = imagem;
 	}
 
-	public int getNota() {
+	public double getNota() {
 		return nota;
 	}
 
-	public void setNota(int nota) {
+	public void setNota(double nota) {
 		this.nota = nota;
 	}
 	
