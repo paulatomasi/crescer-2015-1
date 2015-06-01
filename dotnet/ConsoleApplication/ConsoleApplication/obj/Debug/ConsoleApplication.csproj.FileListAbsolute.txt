@@ -1,0 +1,6 @@
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.exe
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.exe
+C:\Users\projetocrescer\Desktop\crescer-2015-1\dotnet\ConsoleApplication\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
