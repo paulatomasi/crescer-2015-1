@@ -1,38 +1,30 @@
 <html>
 	<head>
 		{{> head}}
-		{{> styletabela}}
+		{{> styleconsulta}}
 		<meta charset="utf-8">
 		<title>Filmator - Consulta</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		{{> nav}}
 		{{> header}}
 		<div align="center">
-			<table border=1>
-				<tr> 
-					<td>Imagem</td>
-					<td>Nome</td>
-					<td>Gênero</td>
-					<td>Ano de Lançamento</td>
-					<td>Diretor</td>
-					<td>Sinopse</td> 
-					<td>Avaliação</td> 
-				</tr>
-				
+			<div>
 				{{#Filmes}}
-				<tr>
-					<td><img src="{{imagem}}" width="200" height="300"></td>	
-					<td>{{nome}}</td>	
-					<td>{{genero}}</td>
-					<td>{{anoLancamento}}</td>
-					<td>{{diretor}}</td>
-					<td>{{sinopse}}</td>
-					<td>{{nota}}</td>
-				</tr>
-				{{/Filmes}}
-					
-			</table>	
+				<div class="span_1_of_about">
+					<img src="{{imagem}}"/>
+				</div>
+				<div class="consulta">
+					<h2 class="titulo">{{nome}} ({{anoLancamento}})</h2>
+				 	<h3>Dirigido por: {{diretor}}</h3>
+				 	<h4>{{{genero}}}</h4>
+				 	<h4 class="sinopse">{{sinopse}}</h4>
+				  	<h4>Avaliação dos usuários: {{nota}}</h4>
+				</div>
+				<div class="clearfix"></div>	
+				<br>
+			{{/Filmes}}
 		</div>
 		<br>
 		{{> scripts}}
