@@ -4,6 +4,7 @@
 		{{> stylebotao}}
 		<meta charset="utf-8">	   
 		<title>Filmator</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		{{> navhome}}
@@ -11,13 +12,18 @@
 		<div align="center">
 		{{#usuarioLogado}}
 			{{#menuAdministrador}}
-			<a href="/cadastroFilme" class=btn>Cadastrar filme</a>
+			<div>
+				<a href="/cadastroFilme" class=btn>Cadastrar filme</a>
+			</div>
 			{{/menuAdministrador}}
-			<br><br>
-			<a href="/consulta" class=btn>Consulta</a>
-			<br><br>
-			<a href="/avaliacao" class=btn>Avaliar</a>
-			<br><br>
+			<p>
+			<div>
+				<a href="/consulta" class=btn>Consulta</a>
+			</div>
+			<p>
+			<div>
+				<a href="/avaliacao" class=btn>Avaliar</a>
+			</div>
 		</div>
 		{{/usuarioLogado}}
 		{{> scripts}}

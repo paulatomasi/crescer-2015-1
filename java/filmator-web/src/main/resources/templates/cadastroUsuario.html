@@ -3,6 +3,11 @@
 	<head>
 		{{> head}}
 		{{> styleformulario}}
+		{{> styleconsulta}}
+		{{> stylebotao}}
+		{{> campos}}
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<meta charset="utf-8">
 		<title>Filmator - Cadastro de usuário</title>
 	</head>
@@ -11,8 +16,10 @@
 		{{> headerSemLogin}}
 		<div align="center"> 
 			<form action="/salvarUsuario" method="post"> 
-				<h3>Cadastre um novo usuário:</h3>
-				<br>
+				<div class="divformulario"> 
+					<label>Cadastre um novo usuário:</label> 
+				</div>
+				
 				<div class="divformulario"> 
 					<label>Login:</label> 
 					<input name="login" type="text" required placeholder="Login"></input> 
@@ -24,7 +31,7 @@
 				</div> 
 				
 				<div> 
-					<input name="cadastrar" type="submit" required value="Cadastrar"> 
+					<input class="btn" name="cadastrar" type="submit" required value="Cadastrar"> 
 				</div>
 			</form> 
 		</div>
