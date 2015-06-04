@@ -21,6 +21,12 @@ public class HomeController {
 		return "homelogin";
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout( HttpSession session ){
+		session.invalidate();
+		return "homelogin";
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
 		return "login";
