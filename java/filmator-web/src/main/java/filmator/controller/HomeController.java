@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import filmator.dao.FilmeDao;
+import filmator.model.BarbieLinda;
 
 @Controller
 public class HomeController {
@@ -20,6 +22,11 @@ public class HomeController {
 	public String homeLogin() {
 		return "homelogin";
 	}
+	
+	@RequestMapping(value = "/barbielinda", method = RequestMethod.GET)
+    public @ResponseBody BarbieLinda getBarbieLinda (Model model) {
+        return new BarbieLinda("A barbie é muito linda né");
+    }
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout( HttpSession session ){
