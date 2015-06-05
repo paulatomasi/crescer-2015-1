@@ -4,7 +4,6 @@
 		{{> head}}
 		{{> styleformulario}}
 		{{> styleconsulta}}
-		{{> stylebotao}}
 		{{> campos}}
 		<meta charset="utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -13,23 +12,20 @@
 	<body>
 		{{> navavaliacao}}
 		{{> header}} 
+		{{> scripts}} 
 		<div align="center"> 
-			<form action="/salvarAvaliacao" method="post"> 
-				<div class="divformulario"> 
-				
 				<div class="divformulario"> 
 					<label>Filme:</label>
-					<select name="idFilme"> 
+					<select id="idFilme"> 
 						<option value="">Selecione</option> 
 						{{#Filmes}}
 						<option value="{{idFilme}}">{{nome}} ({{anoLancamento}})</option> 
 						{{/Filmes}}
 					</select>
-				</div> 
 			
 				<div class="divformulario"> 
 					<label>Nota:</label>
-					<select name="nota"> 
+					<select id="nota"> 
 						<option value="">Selecione</option> 
 						<option value="1">1</option> 
 						<option value="2">2</option> 
@@ -38,12 +34,20 @@
 						<option value="5">5</option> 
 					</select>
 				</div> 
-				
-				<div class="divformulario"> 
-					<input class=btn type="submit" required value="Avaliar"> 
-				</div> 
+				<div>
+					<button id="id" class="btn">Avaliar</button>
+				</div>
+				<script>
+					$('#id').click(function(){
+					    $.ajax({
+      						url: '/salvaravaliacao?nota=' + $('#nota').val() + '&idFilme=' + $('#idFilme').val(),
+					      	type: 'POST'
+					    }).done(function(res){
+					      alert("Nice (: ")
+					    });
+					});
+			  	</script>
 			</form> 
 		</div> 
-		{{> scripts}} 
 	</body> 
 </html>
